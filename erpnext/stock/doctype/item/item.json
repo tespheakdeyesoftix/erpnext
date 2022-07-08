@@ -119,7 +119,8 @@
   "default_item_manufacturer",
   "default_manufacturer_part_no",
   "published_in_website",
-  "total_projected_qty"
+  "total_projected_qty",
+  "testing_add_field"
  ],
  "fields": [
   {
@@ -903,6 +904,11 @@
    "fieldname": "accounting",
    "fieldtype": "Tab Break",
    "label": "Accounting"
+  },
+  {
+   "fieldname": "testing_add_field",
+   "fieldtype": "Data",
+   "label": "Testing Add Field"
   }
  ],
  "icon": "fa fa-tag",
@@ -910,7 +916,7 @@
  "image_field": "image",
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2022-06-15 09:02:06.177691",
+ "modified": "2022-07-08 20:51:42.441986",
  "modified_by": "Administrator",
  "module": "Stock",
  "name": "Item",
