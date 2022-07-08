@@ -14,6 +14,7 @@
   "details",
   "naming_series",
   "item_code",
+  "wholesale_price",
   "item_name",
   "item_group",
   "stock_uom",
@@ -909,6 +910,11 @@
    "fieldname": "testing_add_field",
    "fieldtype": "Data",
    "label": "Testing Add Field"
+  },
+  {
+   "fieldname": "wholesale_price",
+   "fieldtype": "Currency",
+   "label": "Wholesale Price"
   }
  ],
  "icon": "fa fa-tag",
@@ -916,7 +922,7 @@
  "image_field": "image",
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2022-07-08 20:51:42.441986",
+ "modified": "2022-07-08 22:10:32.281458",
  "modified_by": "Administrator",
  "module": "Stock",
  "name": "Item",
