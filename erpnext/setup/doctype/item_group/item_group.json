@@ -17,6 +17,9 @@
   "column_break_5",
   "product_code_prefix",
   "image",
+  "max_discount_on_customer_birthday",
+  "max_birthday_discount_by_branch",
+  "item_group_discount",
   "defaults",
   "item_group_defaults",
   "sec_break_taxes",
@@ -241,6 +244,23 @@
    "fieldname": "is_favorite",
    "fieldtype": "Check",
    "label": "Is Favorite"
+  },
+  {
+   "fieldname": "max_discount_on_customer_birthday",
+   "fieldtype": "Section Break",
+   "label": "Max discount on customer birthday"
+  },
+  {
+   "fieldname": "max_birthday_discount_by_branch",
+   "fieldtype": "Table",
+   "label": "Discount",
+   "options": "Item Group Birthday Discount"
+  },
+  {
+   "fieldname": "item_group_discount",
+   "fieldtype": "Text",
+   "hidden": 1,
+   "label": "Item Group Discount"
   }
  ],
  "icon": "fa fa-sitemap",
@@ -249,7 +269,7 @@
  "is_tree": 1,
  "links": [],
  "max_attachments": 3,
- "modified": "2022-07-09 15:34:47.983292",
+ "modified": "2022-07-09 15:42:02.593136",
  "modified_by": "Administrator",
  "module": "Setup",
  "name": "Item Group",

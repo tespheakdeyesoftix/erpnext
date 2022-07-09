@@ -7,6 +7,7 @@
  "engine": "InnoDB",
  "field_order": [
   "period_start_date",
+  "id",
   "period_end_date",
   "status",
   "column_break_3",
@@ -18,10 +19,15 @@
   "pos_closing_entry",
   "column_break_7",
   "user",
+  "pos_username",
   "opening_balance_details_section",
   "balance_details",
   "section_break_9",
-  "amended_from"
+  "note",
+  "amended_from",
+  "document_number",
+  "station_name",
+  "is_closing_entry_synced"
  ],
  "fields": [
   {
@@ -127,14 +133,46 @@
    "label": "Opening Balance Details",
    "options": "POS Opening Entry Detail",
    "reqd": 1
+  },
+  {
+   "fieldname": "pos_username",
+   "fieldtype": "Text",
+   "label": "Pos Username"
+  },
+  {
+   "fieldname": "note",
+   "fieldtype": "Text",
+   "label": "Note"
+  },
+  {
+   "fieldname": "document_number",
+   "fieldtype": "Data",
+   "label": "Document Number"
+  },
+  {
+   "fieldname": "station_name",
+   "fieldtype": "Data",
+   "label": "Station Name"
+  },
+  {
+   "fieldname": "is_closing_entry_synced",
+   "fieldtype": "Data",
+   "hidden": 1,
+   "label": "Is Closing Entry Synced"
+  },
+  {
+   "fieldname": "id",
+   "fieldtype": "Data",
+   "label": "id"
   }
  ],
  "is_submittable": 1,
  "links": [],
- "modified": "2020-05-29 15:08:40.955310",
+ "modified": "2022-07-09 16:37:28.779600",
  "modified_by": "Administrator",
  "module": "Accounts",
  "name": "POS Opening Entry",
+ "naming_rule": "Expression (old style)",
  "owner": "Administrator",
  "permissions": [
   {
@@ -181,5 +219,6 @@
  ],
  "sort_field": "modified",
  "sort_order": "DESC",
+ "states": [],
  "track_changes": 1
 }

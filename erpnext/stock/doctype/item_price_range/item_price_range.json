@@ -1,0 +1,48 @@
+{
+ "actions": [],
+ "autoname": "hash",
+ "creation": "2022-07-09 16:04:19.831088",
+ "doctype": "DocType",
+ "editable_grid": 1,
+ "engine": "InnoDB",
+ "field_order": [
+  "min_quantity",
+  "max_quantity",
+  "price"
+ ],
+ "fields": [
+  {
+   "fieldname": "min_quantity",
+   "fieldtype": "Float",
+   "in_list_view": 1,
+   "label": "Min Quantity",
+   "reqd": 1
+  },
+  {
+   "fieldname": "max_quantity",
+   "fieldtype": "Float",
+   "in_list_view": 1,
+   "label": "Max Quantity",
+   "reqd": 1
+  },
+  {
+   "fieldname": "price",
+   "fieldtype": "Currency",
+   "in_list_view": 1,
+   "label": "Price",
+   "reqd": 1
+  }
+ ],
+ "istable": 1,
+ "links": [],
+ "modified": "2022-07-09 16:04:19.831088",
+ "modified_by": "Administrator",
+ "module": "Stock",
+ "name": "Item Price Range",
+ "naming_rule": "Random",
+ "owner": "Administrator",
+ "permissions": [],
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "states": []
+}

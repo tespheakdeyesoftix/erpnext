@@ -16,6 +16,7 @@
   "item_description",
   "price_list_details",
   "price_list",
+  "price_list_rate",
   "customer",
   "supplier",
   "batch_no",
@@ -25,13 +26,15 @@
   "item_details",
   "currency",
   "col_br_1",
-  "price_list_rate",
   "section_break_15",
   "valid_from",
   "lead_time_days",
   "column_break_18",
   "valid_upto",
   "section_break_24",
+  "price_range_section",
+  "item_price_ranges",
+  "price_range_data",
   "note",
   "reference"
  ],
@@ -48,41 +51,32 @@
    "oldfieldtype": "Select",
    "options": "Item",
    "reqd": 1,
-   "search_index": 1,
-   "show_days": 1,
-   "show_seconds": 1
+   "search_index": 1
   },
   {
    "fieldname": "uom",
    "fieldtype": "Link",
    "label": "UOM",
-   "options": "UOM",
-   "show_days": 1,
-   "show_seconds": 1
+   "options": "UOM"
   },
   {
    "default": "0",
    "description": "Quantity  that must be bought or sold per UOM",
    "fieldname": "packing_unit",
    "fieldtype": "Int",
-   "label": "Packing Unit",
-   "show_days": 1,
-   "show_seconds": 1
+   "hidden": 1,
+   "label": "Packing Unit"
   },
   {
    "fieldname": "column_break_17",
-   "fieldtype": "Column Break",
-   "show_days": 1,
-   "show_seconds": 1
+   "fieldtype": "Column Break"
   },
   {
    "fieldname": "item_name",
    "fieldtype": "Data",
    "in_list_view": 1,
    "label": "Item Name",
-   "read_only": 1,
-   "show_days": 1,
-   "show_seconds": 1
+   "read_only": 1
   },
   {
    "fetch_from": "item_code.brand",
@@ -90,25 +84,19 @@
    "fieldtype": "Read Only",
    "in_list_view": 1,
    "label": "Brand",
-   "read_only": 1,
-   "show_days": 1,
-   "show_seconds": 1
+   "read_only": 1
   },
   {
    "fieldname": "item_description",
    "fieldtype": "Text",
    "label": "Item Description",
-   "read_only": 1,
-   "show_days": 1,
-   "show_seconds": 1
+   "read_only": 1
   },
   {
    "fieldname": "price_list_details",
    "fieldtype": "Section Break",
    "label": "Price List",
-   "options": "fa fa-tags",
-   "show_days": 1,
-   "show_seconds": 1
+   "options": "fa fa-tags"
   },
   {
    "fieldname": "price_list",
@@ -117,59 +105,48 @@
    "in_standard_filter": 1,
    "label": "Price List",
    "options": "Price List",
-   "reqd": 1,
-   "show_days": 1,
-   "show_seconds": 1
+   "reqd": 1
   },
   {
    "bold": 1,
    "depends_on": "eval:doc.selling == 1",
    "fieldname": "customer",
    "fieldtype": "Link",
+   "hidden": 1,
    "label": "Customer",
-   "options": "Customer",
-   "show_days": 1,
-   "show_seconds": 1
+   "options": "Customer"
   },
   {
    "depends_on": "eval:doc.buying == 1",
    "fieldname": "supplier",
    "fieldtype": "Link",
+   "hidden": 1,
    "label": "Supplier",
-   "options": "Supplier",
-   "show_days": 1,
-   "show_seconds": 1
+   "options": "Supplier"
   },
   {
    "fieldname": "column_break_3",
-   "fieldtype": "Column Break",
-   "show_days": 1,
-   "show_seconds": 1
+   "fieldtype": "Column Break"
   },
   {
    "default": "0",
    "fieldname": "buying",
    "fieldtype": "Check",
    "label": "Buying",
-   "read_only": 1,
-   "show_days": 1,
-   "show_seconds": 1
+   "read_only": 1
   },
   {
    "default": "0",
    "fieldname": "selling",
    "fieldtype": "Check",
    "label": "Selling",
-   "read_only": 1,
-   "show_days": 1,
-   "show_seconds": 1
+   "read_only": 1
   },
   {
    "fieldname": "item_details",
    "fieldtype": "Section Break",
-   "options": "fa fa-tag",
-   "show_days": 1,
-   "show_seconds": 1
+   "hidden": 1,
+   "options": "fa fa-tag"
   },
   {
    "bold": 1,
@@ -177,15 +154,11 @@
    "fieldtype": "Link",
    "label": "Currency",
    "options": "Currency",
-   "read_only": 1,
-   "show_days": 1,
-   "show_seconds": 1
+   "read_only": 1
   },
   {
    "fieldname": "col_br_1",
-   "fieldtype": "Column Break",
-   "show_days": 1,
-   "show_seconds": 1
+   "fieldtype": "Column Break"
   },
   {
    "fieldname": "price_list_rate",
@@ -197,80 +170,78 @@
    "oldfieldname": "ref_rate",
    "oldfieldtype": "Currency",
    "options": "currency",
-   "reqd": 1,
-   "show_days": 1,
-   "show_seconds": 1
+   "reqd": 1
   },
   {
    "fieldname": "section_break_15",
    "fieldtype": "Section Break",
-   "show_days": 1,
-   "show_seconds": 1
+   "hidden": 1
   },
   {
    "default": "Today",
    "fieldname": "valid_from",
    "fieldtype": "Date",
-   "label": "Valid From",
-   "show_days": 1,
-   "show_seconds": 1
+   "label": "Valid From"
   },
   {
    "default": "0",
    "fieldname": "lead_time_days",
    "fieldtype": "Int",
-   "label": "Lead Time in days",
-   "show_days": 1,
-   "show_seconds": 1
+   "label": "Lead Time in days"
   },
   {
    "fieldname": "column_break_18",
-   "fieldtype": "Column Break",
-   "show_days": 1,
-   "show_seconds": 1
+   "fieldtype": "Column Break"
   },
   {
    "fieldname": "valid_upto",
    "fieldtype": "Date",
-   "label": "Valid Upto",
-   "show_days": 1,
-   "show_seconds": 1
+   "label": "Valid Upto"
   },
   {
    "fieldname": "section_break_24",
-   "fieldtype": "Section Break",
-   "show_days": 1,
-   "show_seconds": 1
+   "fieldtype": "Section Break"
   },
   {
    "fieldname": "note",
    "fieldtype": "Text",
-   "label": "Note",
-   "show_days": 1,
-   "show_seconds": 1
+   "label": "Note"
   },
   {
    "fieldname": "reference",
    "fieldtype": "Data",
    "in_list_view": 1,
-   "label": "Reference",
-   "show_days": 1,
-   "show_seconds": 1
+   "label": "Reference"
   },
   {
    "fieldname": "batch_no",
    "fieldtype": "Link",
+   "hidden": 1,
    "label": "Batch No",
-   "options": "Batch",
-   "show_days": 1,
-   "show_seconds": 1
+   "options": "Batch"
+  },
+  {
+   "fieldname": "price_range_section",
+   "fieldtype": "Section Break"
+  },
+  {
+   "fieldname": "item_price_ranges",
+   "fieldtype": "Table",
+   "label": "Item Price Range",
+   "options": "Item Price Range"
+  },
+  {
+   "fieldname": "price_range_data",
+   "fieldtype": "Text",
+   "hidden": 1,
+   "label": "Price Range Data"
   }
  ],
  "icon": "fa fa-flag",
  "idx": 1,
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2020-12-08 18:12:15.395772",
+ "modified": "2022-07-09 16:23:43.315458",
  "modified_by": "Administrator",
  "module": "Stock",
  "name": "Item Price",
@@ -307,6 +278,7 @@
  "quick_entry": 1,
  "sort_field": "modified",
  "sort_order": "ASC",
+ "states": [],
  "title_field": "item_name",
  "track_changes": 1
 }

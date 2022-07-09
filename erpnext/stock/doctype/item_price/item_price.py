@@ -8,6 +8,7 @@ from frappe.model.document import Document
 from frappe.query_builder import Criterion
 from frappe.query_builder.functions import Cast_
 from frappe.utils import getdate
+import json
 
 
 class ItemPriceDuplicateItem(frappe.ValidationError):
@@ -121,3 +122,30 @@ class ItemPrice(Document):
 		if self.buying and not self.selling:
 			# if only buying then remove customer
 			self.customer = None
+		# check if item price has price range 
+		if len(self.item_price_ranges)>0:
+			price_list = self.item_price_ranges
+			str_json = ""
+			for x in price_list:
+				str_json += str(PriceRangeModel(x.min_quantity,x.max_quantity,x.price).__dict__)+ ","
+			str_json ="[" + str_json[0:len(str_json)-1] + "]"
+			self.price_range_data = str_json
+
+
+		#update to item back
+		if not self.is_new():
+			if self.price_list =='Wholesale Price' or self.price_list=="Standard Selling":
+				item = frappe.get_doc("Item", self.item_code)
+				#update wholeprice to item
+				if self.price_list == "Wholesale Price" and self.name ==item.wholesale_price_id:
+					frappe.db.set_value("Item", self.item_code, "wholesale_price", self.price_list_rate)
+				#update retial price to item
+				if self.price_list == "Standard Selling" and self.name ==item.price_id:
+					frappe.db.set_value("Item", self.item_code, "standard_rate", self.price_list_rate)
+				
+
+class PriceRangeModel:
+	def __init__(self, min_qty, max_qty, price):
+		self.min_qty = min_qty
+		self.max_qty =max_qty
+		self.price = price
