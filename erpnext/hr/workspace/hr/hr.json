@@ -1642,16 +1642,17 @@
    "type": "Link"
   }
  ],
- "modified": "2022-01-13 17:38:45.489128",
+ "modified": "2022-07-09 14:02:39.407374",
  "modified_by": "Administrator",
  "module": "HR",
  "name": "HR",
  "owner": "Administrator",
  "parent_page": "",
  "public": 1,
+ "quick_lists": [],
  "restrict_to_domain": "",
  "roles": [],
- "sequence_id": 14.0,
+ "sequence_id": 11.0,
  "shortcuts": [
   {
    "color": "Green",
