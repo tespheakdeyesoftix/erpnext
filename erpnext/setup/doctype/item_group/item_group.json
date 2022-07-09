@@ -13,8 +13,10 @@
   "item_group_name",
   "parent_item_group",
   "is_group",
-  "image",
+  "is_favorite",
   "column_break_5",
+  "product_code_prefix",
+  "image",
   "defaults",
   "item_group_defaults",
   "sec_break_taxes",
@@ -87,6 +89,7 @@
   {
    "fieldname": "defaults",
    "fieldtype": "Section Break",
+   "hidden": 1,
    "label": "Defaults"
   },
   {
@@ -98,6 +101,7 @@
   {
    "fieldname": "sec_break_taxes",
    "fieldtype": "Section Break",
+   "hidden": 1,
    "label": "Item Tax"
   },
   {
@@ -109,6 +113,7 @@
   {
    "fieldname": "sb9",
    "fieldtype": "Section Break",
+   "hidden": 1,
    "label": "Website Settings"
   },
   {
@@ -193,6 +198,7 @@
    "depends_on": "show_in_website",
    "fieldname": "website_filters_section",
    "fieldtype": "Section Break",
+   "hidden": 1,
    "label": "Website Filters"
   },
   {
@@ -224,6 +230,17 @@
    "fieldname": "include_descendants",
    "fieldtype": "Check",
    "label": "Include Descendants"
+  },
+  {
+   "fieldname": "product_code_prefix",
+   "fieldtype": "Data",
+   "label": "Product Code Prefix"
+  },
+  {
+   "default": "0",
+   "fieldname": "is_favorite",
+   "fieldtype": "Check",
+   "label": "Is Favorite"
   }
  ],
  "icon": "fa fa-sitemap",
@@ -232,7 +249,7 @@
  "is_tree": 1,
  "links": [],
  "max_attachments": 3,
- "modified": "2022-03-09 12:27:11.055782",
+ "modified": "2022-07-09 15:34:47.983292",
  "modified_by": "Administrator",
  "module": "Setup",
  "name": "Item Group",

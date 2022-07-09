@@ -4,7 +4,7 @@
 import copy
 import json
 from typing import Dict, List, Optional
-
+import uuid;
 import frappe
 from frappe import _
 from frappe.model.document import Document
@@ -67,8 +67,71 @@ class Item(Document):
 				set_name_by_naming_series(self)
 				self.item_code = self.name
 
+		"""****Code added by Pheakdey. auto name by product group code prefix ****"""		
+		if strip(self.product_code_prefix) !="" and strip(self.item_code) =="":
+			self.naming_series = strip(self.product_code_prefix)
+			from frappe.model.naming import set_name_by_naming_series
+
+			set_name_by_naming_series(self)
+			self.item_code = self.name
+
+		
 		self.item_code = strip(self.item_code)
 		self.name = self.item_code
+
+	def before_save(self):
+		self.id = str(uuid.uuid4())
+		# Generate item availablility 
+		if len(self.branches)>0:
+			branches = self.branches
+			branches_sort = sorted(branches, key=lambda x: x.branch_code)
+			branch_names = "" 
+			branch_codes = ""
+			for x in branches_sort:
+				branch_names += x.branch+ ","
+				branch_codes +=x.branch_code
+			
+			if frappe.db.exists("Branch Permission Code", branch_codes, cache=True):
+				self.available_branches = branch_codes
+				 
+			else:
+			 
+				doc = frappe.new_doc('Branch Permission Code')
+				doc.permission_code = branch_codes
+				doc.branches = branch_names
+				doc.save()
+				self.available_branches = branch_codes
+		else:
+			self.available_branches = ""
+
+		#update wholesale price to price list
+		if not self.is_new():
+			#update retail price
+			if frappe.db.exists("Item Price", self.price_id, cache=True):
+				frappe.db.set_value("Item Price", self.price_id, "price_list_rate", self.standard_rate)
+			else:
+				#when product update price but in table Item price not have standard selling price list so need to add news
+				doc = frappe.new_doc('Item Price')
+				doc.uom = self.sales_uom
+				doc.item_code = self.name
+				doc.price_list = "Standard Selling"
+				doc.price_list_rate = self.standard_rate
+				doc.save()
+				self.price_id = doc.name
+
+			#update wholesale price
+			if frappe.db.exists("Item Price", self.wholesale_price_id, cache=True):
+				frappe.db.set_value("Item Price", self.wholesale_price_id, "price_list_rate", self.wholesale_price)
+			else:
+				if frappe.db.exists("Price List", "Wholesale Price", cache=True):
+					doc = frappe.new_doc('Item Price')
+					doc.uom = self.sales_uom
+					doc.item_code = self.name
+					doc.price_list = "Wholesale Price"
+					doc.price_list_rate = self.wholesale_price
+					doc.save()
+					self.wholesale_price_id = doc.name
+
 
 	def after_insert(self):
 		"""set opening stock and item price"""
@@ -78,15 +141,26 @@ class Item(Document):
 
 		if self.opening_stock:
 			self.set_opening_stock()
+		
+		"""auto save item code to barcode"""
+		if not frappe.db.exists({"doctype":"Item Barcode","barcode":self.name}):
+			doc=frappe.new_doc("Item Barcode")
+			doc.barcode = self.name
+			doc.parent = self.name
+			doc.parenttype="Item"
+			doc.parentfield="barcodes"
+			doc.unit=self.stock_uom
+			doc.insert()
 
 	def validate(self):
-		frappe.msgprint("hello world")
+
 		if not self.item_name:
 			self.item_name = self.item_code
 
 		if not strip_html(cstr(self.description)).strip():
 			self.description = self.item_name
 
+		self.validate_item_code()
 		self.validate_uom()
 		self.validate_description()
 		self.add_default_uom_in_conversion_factor_table()
@@ -159,6 +233,9 @@ class Item(Document):
 				}
 			)
 			item_price.insert()
+
+			self.price_id = item_price.name
+			self.save()
 
 	def set_opening_stock(self):
 		"""set opening stock"""
@@ -491,6 +568,13 @@ class Item(Document):
 					frappe.db.set_value(
 						dt, d.name, "item_wise_tax_detail", json.dumps(item_wise_tax_detail), update_modified=False
 					)
+		# updatfe keyword
+		keyword = self.name + ' ' + self.item_code + ' ' + self.item_name;
+		for d in self.barcodes:
+			keyword = keyword + ' ' + d.barcode
+        # frappe.db.set_value(doctype, name, fieldname, value)
+		frappe.db.set_value("Item",new_name,"keyword",keyword)
+
 
 	def delete_old_bins(self, old_name):
 		frappe.db.delete("Bin", {"item_code": old_name})
@@ -835,6 +919,13 @@ class Item(Document):
 						self.stock_uom, template_uom
 					)
 				)
+	
+	def validate_item_code(self):
+		
+		if self.is_new():
+			if self.item_code=="" and self.product_code_prefix =="":
+				frappe.throw("Please enter product_code.")
+	
 
 	def validate_uom_conversion_factor(self):
 		if self.uoms:
