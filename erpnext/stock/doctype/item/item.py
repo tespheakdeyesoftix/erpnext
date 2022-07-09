@@ -80,6 +80,7 @@ class Item(Document):
 			self.set_opening_stock()
 
 	def validate(self):
+		frappe.msgprint("hello world")
 		if not self.item_name:
 			self.item_name = self.item_code
 
