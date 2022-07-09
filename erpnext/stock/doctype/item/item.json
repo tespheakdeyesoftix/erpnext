@@ -16,6 +16,7 @@
   "item_code",
   "wholesale_price",
   "special_price",
+  "test_update",
   "item_name",
   "item_group",
   "stock_uom",
@@ -922,6 +923,11 @@
    "fieldtype": "Currency",
    "label": "Special Price",
    "reqd": 1
+  },
+  {
+   "fieldname": "test_update",
+   "fieldtype": "Data",
+   "label": "Test Update"
   }
  ],
  "icon": "fa fa-tag",
@@ -929,7 +935,7 @@
  "image_field": "image",
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2022-07-09 10:51:05.405167",
+ "modified": "2022-07-09 10:55:29.302877",
  "modified_by": "Administrator",
  "module": "Stock",
  "name": "Item",
