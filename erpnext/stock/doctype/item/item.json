@@ -15,6 +15,7 @@
   "naming_series",
   "item_code",
   "wholesale_price",
+  "special_price",
   "item_name",
   "item_group",
   "stock_uom",
@@ -915,6 +916,12 @@
    "fieldname": "wholesale_price",
    "fieldtype": "Currency",
    "label": "Wholesale Price"
+  },
+  {
+   "fieldname": "special_price",
+   "fieldtype": "Currency",
+   "label": "Special Price",
+   "reqd": 1
   }
  ],
  "icon": "fa fa-tag",
@@ -922,7 +929,7 @@
  "image_field": "image",
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2022-07-08 22:10:32.281458",
+ "modified": "2022-07-09 10:51:05.405167",
  "modified_by": "Administrator",
  "module": "Stock",
  "name": "Item",
