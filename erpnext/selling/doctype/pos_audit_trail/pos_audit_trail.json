@@ -1,0 +1,150 @@
+{
+ "actions": [],
+ "allow_rename": 1,
+ "autoname": "hash",
+ "creation": "2022-07-11 10:28:04.124372",
+ "doctype": "DocType",
+ "editable_grid": 1,
+ "engine": "InnoDB",
+ "field_order": [
+  "id",
+  "company",
+  "pos_profile",
+  "posting_date",
+  "pos_user",
+  "pos_opening_entry_id",
+  "pos_opening_entry_number",
+  "pos_invoice_id",
+  "pos_invoice_number",
+  "audit_trail_type",
+  "note",
+  "item_code",
+  "item_name",
+  "is_sync",
+  "can_sync",
+  "station_name"
+ ],
+ "fields": [
+  {
+   "fieldname": "id",
+   "fieldtype": "Data",
+   "hidden": 1,
+   "label": "id"
+  },
+  {
+   "fieldname": "company",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "label": "Company",
+   "options": "Company"
+  },
+  {
+   "fieldname": "pos_profile",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "label": "POS Profile",
+   "options": "POS Profile"
+  },
+  {
+   "fieldname": "posting_date",
+   "fieldtype": "Date",
+   "in_list_view": 1,
+   "label": "Posting Date"
+  },
+  {
+   "fieldname": "pos_user",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "label": "POS User"
+  },
+  {
+   "fieldname": "pos_opening_entry_id",
+   "fieldtype": "Data",
+   "label": "POS Opening Entry ID"
+  },
+  {
+   "fieldname": "pos_opening_entry_number",
+   "fieldtype": "Data",
+   "label": "POS Opening Entry Number"
+  },
+  {
+   "fieldname": "pos_invoice_id",
+   "fieldtype": "Data",
+   "label": "POS Invoice ID"
+  },
+  {
+   "fieldname": "pos_invoice_number",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "label": "POS Invoice Number"
+  },
+  {
+   "fieldname": "audit_trail_type",
+   "fieldtype": "Select",
+   "in_list_view": 1,
+   "label": "Audit Trail Type",
+   "options": "Open Cashier Shift\nClose Cashier Shift\nChange Price\nDelete Item\nDelete Order\nChange Warehouse\nChange Unit\nLogin\nLogout\nBackup Database\nView Cashier Shift\nOpen Report\nOpen Cashdrawer\nPrint Close Shift Summary Report\nPrint Close Sale Product Report\nPrint Close Shift Sale Transaction Report\nReprint Receipt\nView Closed Receipts\nChange Customer\nAdd Sale Note\nRemove Sale Note\nSave Sale Order To Draft\nRemove Item Note\nAdd Item Note\nEdit Pending Order\nClone Order\nPayment and Close Order\nChange Quantity\nChange Warehouse\nAdd Free Item\nRemove Free Item\nDelete Item\nAdd Item Discount\nRemove Item Discount\nPrint Invoice Before Payment\nAdd Sale Order Discount\nRemove Sale Order Discount\nReturn and Close Order\nDelete Order Before Payment\nDelete Order After Payment\nRemove Customer from Order"
+  },
+  {
+   "fieldname": "note",
+   "fieldtype": "Data",
+   "label": "Note"
+  },
+  {
+   "fieldname": "item_code",
+   "fieldtype": "Link",
+   "label": "Item Code",
+   "options": "Item"
+  },
+  {
+   "fetch_from": "item_code.item_name",
+   "fieldname": "item_name",
+   "fieldtype": "Data",
+   "label": "Item Name"
+  },
+  {
+   "default": "0",
+   "fieldname": "is_sync",
+   "fieldtype": "Check",
+   "hidden": 1,
+   "label": "Is Sync"
+  },
+  {
+   "default": "0",
+   "fieldname": "can_sync",
+   "fieldtype": "Check",
+   "hidden": 1,
+   "label": "Can Sync"
+  },
+  {
+   "fieldname": "station_name",
+   "fieldtype": "Data",
+   "label": "Station Name"
+  }
+ ],
+ "index_web_pages_for_search": 1,
+ "links": [],
+ "modified": "2022-07-11 10:37:59.710826",
+ "modified_by": "Administrator",
+ "module": "Selling",
+ "name": "POS Audit Trail",
+ "naming_rule": "Random",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "System Manager",
+   "share": 1,
+   "write": 1
+  }
+ ],
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "states": []
+}

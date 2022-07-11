@@ -13,6 +13,7 @@
   "company_name",
   "abbr",
   "default_currency",
+  "currency_symbol",
   "country",
   "is_group",
   "cb0",
@@ -31,7 +32,14 @@
   "date_of_commencement",
   "fax",
   "website",
+  "address",
   "address_html",
+  "section_pos_setting",
+  "pos_background_image",
+  "pos_customer_display_thank_you_background",
+  "limit_days_view_report",
+  "column_break_30",
+  "customer_display_slideshow",
   "section_break_28",
   "create_chart_of_accounts_based_on",
   "existing_company",
@@ -740,6 +748,48 @@
    "label": "Default Provisional Account",
    "no_copy": 1,
    "options": "Account"
+  },
+  {
+   "fieldname": "address",
+   "fieldtype": "Data",
+   "label": "Address"
+  },
+  {
+   "fetch_from": "default_currency.symbol",
+   "fieldname": "currency_symbol",
+   "fieldtype": "Data",
+   "label": "Currency Symbol"
+  },
+  {
+   "fieldname": "section_pos_setting",
+   "fieldtype": "Section Break",
+   "label": "POS Setting"
+  },
+  {
+   "fieldname": "pos_background_image",
+   "fieldtype": "Attach Image",
+   "label": "POS Background Image"
+  },
+  {
+   "fieldname": "pos_customer_display_thank_you_background",
+   "fieldtype": "Attach Image",
+   "label": "POS customer display thank you background"
+  },
+  {
+   "default": "7",
+   "fieldname": "limit_days_view_report",
+   "fieldtype": "Int",
+   "label": "Limit days view report"
+  },
+  {
+   "fieldname": "column_break_30",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "customer_display_slideshow",
+   "fieldtype": "Table",
+   "label": "Customer Display Slideshow",
+   "options": "Customer Display Slideshow"
   }
  ],
  "icon": "fa fa-building",
@@ -747,7 +797,7 @@
  "image_field": "company_logo",
  "is_tree": 1,
  "links": [],
- "modified": "2022-04-27 10:33:16.826067",
+ "modified": "2022-07-11 16:49:25.984649",
  "modified_by": "Administrator",
  "module": "Setup",
  "name": "Company",

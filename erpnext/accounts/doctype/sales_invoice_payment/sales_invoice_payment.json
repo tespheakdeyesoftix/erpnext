@@ -8,11 +8,16 @@
   "default",
   "mode_of_payment",
   "amount",
+  "input_amount",
+  "exchange_rate",
   "column_break_3",
   "account",
   "type",
   "base_amount",
-  "clearance_date"
+  "clearance_date",
+  "id",
+  "is_second_currency",
+  "currency_format"
  ],
  "fields": [
   {
@@ -75,11 +80,37 @@
    "hidden": 1,
    "label": "Default",
    "read_only": 1
+  },
+  {
+   "fieldname": "input_amount",
+   "fieldtype": "Currency",
+   "label": "Input Amount"
+  },
+  {
+   "fieldname": "exchange_rate",
+   "fieldtype": "Float",
+   "label": "Exchange Rate"
+  },
+  {
+   "fieldname": "id",
+   "fieldtype": "Data",
+   "label": "id"
+  },
+  {
+   "default": "0",
+   "fieldname": "is_second_currency",
+   "fieldtype": "Check",
+   "label": "Is Second Currency"
+  },
+  {
+   "fieldname": "currency_format",
+   "fieldtype": "Data",
+   "label": "Currency Format"
   }
  ],
  "istable": 1,
  "links": [],
- "modified": "2020-08-03 12:45:39.986598",
+ "modified": "2022-07-11 10:37:06.450866",
  "modified_by": "Administrator",
  "module": "Accounts",
  "name": "Sales Invoice Payment",
@@ -87,5 +118,6 @@
  "permissions": [],
  "quick_entry": 1,
  "sort_field": "modified",
- "sort_order": "DESC"
+ "sort_order": "DESC",
+ "states": []
 }

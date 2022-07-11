@@ -17,7 +17,7 @@
   "section_break_15",
   "api_user",
   "column_break_11",
-  "sync_access_token",
+  "sync_assess_token",
   "application_for_user_section",
   "applicable_for_users",
   "section_break_11",
@@ -42,15 +42,15 @@
   "open_cashdrawer_require_password",
   "open_cashier_shift_require_password",
   "close_cashier_shift_require_password",
-  "discount_on_item_require_password",
-  "discount_on_sale_require_password",
+  "discount_item_require_password",
+  "discount_sale_require_password",
   "change_rate_require_password",
   "change_unit_require_password",
   "delete_bill_require_password",
   "delete_item_require_password",
   "delete_item_require_note",
   "column_break_25",
-  "number_of_receipt_copy",
+  "number_of_receipt_copies",
   "pos_document_number",
   "open_shift_document_number",
   "close_shift_document_number",
@@ -59,15 +59,17 @@
   "item_groups",
   "column_break0",
   "customer_groups",
-  "select_print_heading",
+  "section_break_16",
   "print_format",
   "letter_head",
-  "data_56",
+  "column_break_57",
+  "tc_name",
+  "select_print_heading",
   "section_break_19",
-  "section_break_16",
   "selling_price_list",
-  "account_section",
   "currency",
+  "write_off_account",
+  "write_off_cost_center",
   "account_for_change_amount",
   "column_break_23",
   "income_account",
@@ -77,7 +79,8 @@
   "apply_discount_on",
   "accounting_dimensions_section",
   "cost_center",
-  "dimension_col_break"
+  "dimension_col_break",
+  "updated_doctype"
  ],
  "fields": [
   {
@@ -162,7 +165,8 @@
   {
    "fieldname": "section_break_16",
    "fieldtype": "Section Break",
-   "label": "Print Settings"
+   "label": "Print Settings",
+   "read_only": 1
   },
   {
    "allow_on_submit": 1,
@@ -354,11 +358,6 @@
    "fieldtype": "Column Break"
   },
   {
-   "fieldname": "sync_access_token",
-   "fieldtype": "Data",
-   "label": "Sync Access Token"
-  },
-  {
    "default": "0",
    "fieldname": "view_close_receipt_require_password",
    "fieldtype": "Check",
@@ -408,18 +407,6 @@
   },
   {
    "default": "0",
-   "fieldname": "discount_on_item_require_password",
-   "fieldtype": "Check",
-   "label": "Discount on Item Require Password"
-  },
-  {
-   "default": "0",
-   "fieldname": "discount_on_sale_require_password",
-   "fieldtype": "Check",
-   "label": "Discount on Sale Require Password"
-  },
-  {
-   "default": "0",
    "fieldname": "change_rate_require_password",
    "fieldtype": "Check",
    "label": "Change Rate Require Password"
@@ -443,12 +430,6 @@
    "label": "Delete item require note"
   },
   {
-   "default": "1",
-   "fieldname": "number_of_receipt_copy",
-   "fieldtype": "Int",
-   "label": "Number of Receipt Copy"
-  },
-  {
    "default": "SOyyyy-0000",
    "fieldname": "pos_document_number",
    "fieldtype": "Data",
@@ -465,10 +446,6 @@
    "fieldname": "close_shift_document_number",
    "fieldtype": "Data",
    "label": "Close Shift Document Number"
-  },
-  {
-   "fieldname": "data_56",
-   "fieldtype": "Data"
   },
   {
    "fieldname": "application_for_user_section",
@@ -494,11 +471,6 @@
    "label": "Sale return require password"
   },
   {
-   "fieldname": "account_section",
-   "fieldtype": "Section Break",
-   "label": "Account"
-  },
-  {
    "fieldname": "item_groups",
    "fieldtype": "Table",
    "label": "Item Groups",
@@ -520,6 +492,57 @@
    "fieldname": "filters_section",
    "fieldtype": "Section Break",
    "label": "Filters"
+  },
+  {
+   "fieldname": "column_break_57",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "write_off_account",
+   "fieldtype": "Link",
+   "label": "Write Off Account",
+   "options": "Account",
+   "reqd": 1
+  },
+  {
+   "fieldname": "write_off_cost_center",
+   "fieldtype": "Link",
+   "label": "Write Off Cost Center",
+   "options": "Cost Center",
+   "reqd": 1
+  },
+  {
+   "fieldname": "updated_doctype",
+   "fieldtype": "Data",
+   "label": "Updated_doctype"
+  },
+  {
+   "default": "0",
+   "fieldname": "discount_item_require_password",
+   "fieldtype": "Check",
+   "label": "Discount Item Require Password"
+  },
+  {
+   "default": "0",
+   "fieldname": "discount_sale_require_password",
+   "fieldtype": "Check",
+   "label": "Discount Sale Require Password"
+  },
+  {
+   "default": "1",
+   "fieldname": "number_of_receipt_copies",
+   "fieldtype": "Int",
+   "label": "Number of Receipt Copies"
+  },
+  {
+   "fieldname": "sync_assess_token",
+   "fieldtype": "Data",
+   "label": "Sync Assess Token"
+  },
+  {
+   "fieldname": "tc_name",
+   "fieldtype": "Data",
+   "label": "Term And Condotions"
   }
  ],
  "icon": "icon-cog",
@@ -547,7 +570,7 @@
    "link_fieldname": "pos_profile"
   }
  ],
- "modified": "2022-07-09 17:42:33.167568",
+ "modified": "2022-07-11 11:43:45.777290",
  "modified_by": "Administrator",
  "module": "Accounts",
  "name": "POS Profile",
