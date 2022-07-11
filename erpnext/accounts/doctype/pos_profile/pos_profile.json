@@ -29,42 +29,44 @@
   "validate_stock_on_save",
   "view_close_receipt_require_password",
   "view_shift_report_require_password",
-  "sale_return_require_password",
   "include_sale_transaction_in_shift_report",
+  "print_sale_summary_after_close_shift",
   "print_sale_product_after_close_shift",
   "print_sale_transaction_after_close_shist",
+  "sale_return_require_password",
   "column_break_16",
   "update_stock",
   "ignore_pricing_rule",
-  "allow_user_to_edit_rate",
-  "allow_user_to_edit_discount",
+  "allow_rate_change",
+  "allow_discount_change",
   "open_cashdrawer_require_password",
   "open_cashier_shift_require_password",
   "close_cashier_shift_require_password",
   "discount_on_item_require_password",
   "discount_on_sale_require_password",
   "change_rate_require_password",
+  "change_unit_require_password",
   "delete_bill_require_password",
   "delete_item_require_password",
   "delete_item_require_note",
-  "allow_rate_change",
-  "allow_discount_change",
   "column_break_25",
-  "section_break_16",
-  "print_format",
-  "letter_head",
-  "column_break0",
   "number_of_receipt_copy",
   "pos_document_number",
   "open_shift_document_number",
   "close_shift_document_number",
   "predefine_discount_code",
-  "select_print_heading",
   "filters_section",
-  "section_break_19",
+  "item_groups",
+  "column_break0",
+  "customer_groups",
+  "select_print_heading",
+  "print_format",
+  "letter_head",
   "data_56",
-  "data_57",
+  "section_break_19",
+  "section_break_16",
   "selling_price_list",
+  "account_section",
   "currency",
   "account_for_change_amount",
   "column_break_23",
@@ -75,8 +77,7 @@
   "apply_discount_on",
   "accounting_dimensions_section",
   "cost_center",
-  "dimension_col_break",
-  "section_break_23"
+  "dimension_col_break"
  ],
  "fields": [
   {
@@ -333,11 +334,6 @@
    "label": "Allow User to Edit Discount"
   },
   {
-   "fieldname": "section_break_23",
-   "fieldtype": "Section Break",
-   "label": "Filters"
-  },
-  {
    "fieldname": "column_break_25",
    "fieldtype": "Column Break"
   },
@@ -375,11 +371,6 @@
    "label": "View shift report require password"
   },
   {
-   "fieldname": "sale_return_require_password",
-   "fieldtype": "Data",
-   "label": "Sale return require password"
-  },
-  {
    "default": "0",
    "fieldname": "include_sale_transaction_in_shift_report",
    "fieldtype": "Check",
@@ -396,18 +387,6 @@
    "fieldname": "print_sale_transaction_after_close_shist",
    "fieldtype": "Check",
    "label": "Print Sale Transaction After Close Shist"
-  },
-  {
-   "default": "0",
-   "fieldname": "allow_user_to_edit_rate",
-   "fieldtype": "Check",
-   "label": "Allow User to Edit Rate"
-  },
-  {
-   "default": "0",
-   "fieldname": "allow_user_to_edit_discount",
-   "fieldtype": "Check",
-   "label": "Allow User to Edit Discount"
   },
   {
    "default": "0",
@@ -488,6 +467,50 @@
    "label": "Close Shift Document Number"
   },
   {
+   "fieldname": "data_56",
+   "fieldtype": "Data"
+  },
+  {
+   "fieldname": "application_for_user_section",
+   "fieldtype": "Section Break",
+   "label": "Application For User"
+  },
+  {
+   "default": "1",
+   "fieldname": "print_sale_summary_after_close_shift",
+   "fieldtype": "Check",
+   "label": "Print Sale Summary After Close Shift"
+  },
+  {
+   "default": "0",
+   "fieldname": "change_unit_require_password",
+   "fieldtype": "Check",
+   "label": "Change Unit Require Password"
+  },
+  {
+   "default": "0",
+   "fieldname": "sale_return_require_password",
+   "fieldtype": "Check",
+   "label": "Sale return require password"
+  },
+  {
+   "fieldname": "account_section",
+   "fieldtype": "Section Break",
+   "label": "Account"
+  },
+  {
+   "fieldname": "item_groups",
+   "fieldtype": "Table",
+   "label": "Item Groups",
+   "options": "POS Item Group"
+  },
+  {
+   "fieldname": "customer_groups",
+   "fieldtype": "Table",
+   "label": "Customer Groups",
+   "options": "POS Customer Group"
+  },
+  {
    "default": "5,10,15,50,25,30,35,40,45,50,100",
    "fieldname": "predefine_discount_code",
    "fieldtype": "Data",
@@ -497,19 +520,6 @@
    "fieldname": "filters_section",
    "fieldtype": "Section Break",
    "label": "Filters"
-  },
-  {
-   "fieldname": "data_56",
-   "fieldtype": "Data"
-  },
-  {
-   "fieldname": "data_57",
-   "fieldtype": "Data"
-  },
-  {
-   "fieldname": "application_for_user_section",
-   "fieldtype": "Section Break",
-   "label": "Application For User"
   }
  ],
  "icon": "icon-cog",
@@ -537,7 +547,7 @@
    "link_fieldname": "pos_profile"
   }
  ],
- "modified": "2022-07-09 17:05:55.741514",
+ "modified": "2022-07-09 17:42:33.167568",
  "modified_by": "Administrator",
  "module": "Accounts",
  "name": "POS Profile",

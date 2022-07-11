@@ -14,6 +14,9 @@
   "naming_series",
   "salutation",
   "customer_name",
+  "phone_number",
+  "birthdate",
+  "allow_discount_on_birthday",
   "gender",
   "default_bank_account",
   "tax_id",
@@ -62,6 +65,8 @@
   "website",
   "language",
   "is_frozen",
+  "membership_section",
+  "membership_type",
   "column_break_38",
   "loyalty_program",
   "loyalty_program_tier",
@@ -70,7 +75,8 @@
   "default_commission_rate",
   "sales_team_section",
   "sales_team",
-  "customer_pos_id"
+  "customer_pos_id",
+  "birthday_event_name"
  ],
  "fields": [
   {
@@ -127,12 +133,14 @@
   {
    "fieldname": "default_bank_account",
    "fieldtype": "Link",
+   "hidden": 1,
    "label": "Default Company Bank Account",
    "options": "Bank Account"
   },
   {
    "fieldname": "lead_name",
    "fieldtype": "Link",
+   "hidden": 1,
    "label": "From Lead",
    "no_copy": 1,
    "oldfieldname": "lead_name",
@@ -186,11 +194,13 @@
   {
    "fieldname": "tax_id",
    "fieldtype": "Data",
+   "hidden": 1,
    "label": "Tax ID"
   },
   {
    "fieldname": "tax_category",
    "fieldtype": "Link",
+   "hidden": 1,
    "label": "Tax Category",
    "options": "Tax Category"
   },
@@ -232,6 +242,7 @@
    "collapsible": 1,
    "fieldname": "currency_and_price_list",
    "fieldtype": "Section Break",
+   "hidden": 1,
    "label": "Currency and Price List"
   },
   {
@@ -256,6 +267,7 @@
   {
    "fieldname": "language",
    "fieldtype": "Link",
+   "hidden": 1,
    "label": "Print Language",
    "options": "Language"
   },
@@ -337,6 +349,7 @@
    "collapsible": 1,
    "fieldname": "default_receivable_accounts",
    "fieldtype": "Section Break",
+   "hidden": 1,
    "label": "Default Receivable Accounts"
   },
   {
@@ -350,6 +363,7 @@
    "collapsible": 1,
    "fieldname": "credit_limit_section",
    "fieldtype": "Section Break",
+   "hidden": 1,
    "label": "Credit Limit and Payment Terms"
   },
   {
@@ -422,6 +436,7 @@
    "collapsible_depends_on": "default_sales_partner",
    "fieldname": "sales_team_section_break",
    "fieldtype": "Section Break",
+   "hidden": 1,
    "label": "Sales Partner and Commission",
    "oldfieldtype": "Section Break",
    "options": "fa fa-group"
@@ -447,6 +462,7 @@
    "collapsible_depends_on": "sales_team",
    "fieldname": "sales_team_section",
    "fieldtype": "Section Break",
+   "hidden": 1,
    "label": "Sales Team"
   },
   {
@@ -488,16 +504,51 @@
   {
    "fieldname": "tax_withholding_category",
    "fieldtype": "Link",
+   "hidden": 1,
    "label": "Tax Withholding Category",
    "options": "Tax Withholding Category"
   },
   {
    "fieldname": "opportunity_name",
    "fieldtype": "Link",
+   "hidden": 1,
    "label": "From Opportunity",
    "no_copy": 1,
    "options": "Opportunity",
    "print_hide": 1
+  },
+  {
+   "fieldname": "phone_number",
+   "fieldtype": "Data",
+   "label": "Phone Number"
+  },
+  {
+   "fieldname": "birthdate",
+   "fieldtype": "Date",
+   "label": "Birthdate"
+  },
+  {
+   "default": "1",
+   "fieldname": "allow_discount_on_birthday",
+   "fieldtype": "Check",
+   "label": "Allow discount on birthday"
+  },
+  {
+   "fieldname": "birthday_event_name",
+   "fieldtype": "Data",
+   "hidden": 1,
+   "label": "Birthday Event Name"
+  },
+  {
+   "fieldname": "membership_section",
+   "fieldtype": "Section Break",
+   "label": "Membership"
+  },
+  {
+   "fieldname": "membership_type",
+   "fieldtype": "Link",
+   "label": "Membership Type",
+   "options": "Membership Type"
   }
  ],
  "icon": "fa fa-user",
@@ -511,7 +562,7 @@
    "link_fieldname": "party"
   }
  ],
- "modified": "2022-04-16 20:32:34.000304",
+ "modified": "2022-07-11 10:06:47.863796",
  "modified_by": "Administrator",
  "module": "Selling",
  "name": "Customer",

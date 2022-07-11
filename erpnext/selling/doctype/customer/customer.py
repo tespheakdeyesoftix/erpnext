@@ -312,6 +312,27 @@ class Customer(TransactionBase):
 					frappe.bold(self.customer_name)
 				)
 			)
+	
+	def on_change(self):
+		if frappe.db.exists("Event", self.birthday_event_name, cache=True):
+			doc = frappe.get_doc('Event', self.birthday_event_name)
+			doc.subject = self.name + '-' + self.customer_name + '(' + self.phone_number + ')'
+			doc.starts_on = self.birthdate
+			doc.save()
+		else:
+			doc = frappe.new_doc('Event')
+			doc.customer = self.name
+			doc.subject = self.name + '-' + self.customer_name + '(' + self.phone_number + ')'
+			doc.event_category = 'Customer Birthdate'
+			doc.event_type = "Public"
+			doc.repeat_this_event =1
+			doc.starts_on = self.birthdate
+			doc.repeat_on = "Yearly"
+			doc.insert()	  
+
+			self.birthday_event_name = doc.name
+
+	
 
 
 def create_contact(contact, party_type, party, email):

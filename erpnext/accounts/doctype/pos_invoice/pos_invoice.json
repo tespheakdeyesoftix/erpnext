@@ -7,7 +7,6 @@
  "doctype": "DocType",
  "engine": "InnoDB",
  "field_order": [
-  "customer_section",
   "title",
   "naming_series",
   "customer",
@@ -180,14 +179,38 @@
   "column_break_140",
   "auto_repeat",
   "update_auto_repeat_reference",
-  "against_income_account"
+  "against_income_account",
+  "customization_section",
+  "apply_birthday_discount",
+  "cancel_note",
+  "customer_phone_number",
+  "customer_photo",
+  "id",
+  "is_can_sync",
+  "discount_type",
+  "document_number",
+  "document_number_series",
+  "pos_opening_entry_number",
+  "column_break_179",
+  "loyalty_point_earn",
+  "loyalty_point_earn_amount",
+  "loyalty_program_tier",
+  "membership_type",
+  "membership_type_discount",
+  "pos_closing_entry_id",
+  "exchange_rate",
+  "free_note",
+  "pos_opening_entry_id",
+  "column_break_191",
+  "pos_username",
+  "sale_note",
+  "sale_number",
+  "station_name",
+  "sub_total",
+  "total_item_discount",
+  "total_poyalty_point_amount"
  ],
  "fields": [
-  {
-   "fieldname": "customer_section",
-   "fieldtype": "Section Break",
-   "options": "fa fa-user"
-  },
   {
    "allow_on_submit": 1,
    "default": "{customer_name}",
@@ -1417,6 +1440,7 @@
    "collapsible_depends_on": "sales_partner",
    "fieldname": "sales_team_section_break",
    "fieldtype": "Section Break",
+   "hidden": 1,
    "label": "Commission",
    "oldfieldtype": "Section Break",
    "options": "fa fa-group",
@@ -1460,6 +1484,7 @@
    "collapsible_depends_on": "sales_team",
    "fieldname": "section_break2",
    "fieldtype": "Section Break",
+   "hidden": 1,
    "label": "Sales Team",
    "print_hide": 1
   },
@@ -1476,6 +1501,7 @@
   {
    "fieldname": "subscription_section",
    "fieldtype": "Section Break",
+   "hidden": 1,
    "label": "Subscription Section"
   },
   {
@@ -1548,12 +1574,158 @@
    "fieldtype": "Currency",
    "label": "Amount Eligible for Commission",
    "read_only": 1
+  },
+  {
+   "collapsible": 1,
+   "fieldname": "customization_section",
+   "fieldtype": "Section Break",
+   "label": "Customization"
+  },
+  {
+   "default": "0",
+   "fieldname": "apply_birthday_discount",
+   "fieldtype": "Check",
+   "label": "Apply Birthday Discount"
+  },
+  {
+   "fieldname": "cancel_note",
+   "fieldtype": "Data",
+   "label": "Cancel Note"
+  },
+  {
+   "fieldname": "customer_phone_number",
+   "fieldtype": "Data",
+   "label": "Customer Phone Number"
+  },
+  {
+   "fieldname": "customer_photo",
+   "fieldtype": "Attach Image",
+   "label": "Customer Photo"
+  },
+  {
+   "fieldname": "id",
+   "fieldtype": "Data",
+   "label": "id"
+  },
+  {
+   "default": "0",
+   "fieldname": "is_can_sync",
+   "fieldtype": "Check",
+   "label": "is_can_sync"
+  },
+  {
+   "fieldname": "discount_type",
+   "fieldtype": "Data",
+   "label": "Local Discount Type"
+  },
+  {
+   "fieldname": "document_number",
+   "fieldtype": "Data",
+   "label": "Local Document Number"
+  },
+  {
+   "fieldname": "document_number_series",
+   "fieldtype": "Data",
+   "label": "Local Document Number Series"
+  },
+  {
+   "fieldname": "pos_opening_entry_number",
+   "fieldtype": "Data",
+   "label": "Local POS Opening Entry Number"
+  },
+  {
+   "fieldname": "loyalty_point_earn",
+   "fieldtype": "Int",
+   "label": "Loyalty Point Earn"
+  },
+  {
+   "fieldname": "loyalty_point_earn_amount",
+   "fieldtype": "Currency",
+   "label": "Loyalty Point Earn Amount"
+  },
+  {
+   "fieldname": "loyalty_program_tier",
+   "fieldtype": "Data",
+   "label": "Loyalty Program Tier"
+  },
+  {
+   "fieldname": "column_break_179",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "membership_type",
+   "fieldtype": "Data",
+   "label": "Membership Type"
+  },
+  {
+   "fieldname": "membership_type_discount",
+   "fieldtype": "Float",
+   "label": "Membership Type Discount"
+  },
+  {
+   "fieldname": "pos_closing_entry_id",
+   "fieldtype": "Data",
+   "label": "POS Closing Entry Id"
+  },
+  {
+   "fieldname": "exchange_rate",
+   "fieldtype": "Currency",
+   "label": "POS Exchange Rate"
+  },
+  {
+   "fieldname": "free_note",
+   "fieldtype": "Data",
+   "label": "POS Free Note"
+  },
+  {
+   "fieldname": "pos_opening_entry_id",
+   "fieldtype": "Data",
+   "label": "POS Opening Entry Id"
+  },
+  {
+   "fieldname": "pos_username",
+   "fieldtype": "Data",
+   "label": "pos_username"
+  },
+  {
+   "fieldname": "sale_note",
+   "fieldtype": "Data",
+   "label": "Sale Note"
+  },
+  {
+   "fieldname": "sale_number",
+   "fieldtype": "Data",
+   "label": "Sale Number"
+  },
+  {
+   "fieldname": "station_name",
+   "fieldtype": "Data",
+   "label": "Station Name"
+  },
+  {
+   "fieldname": "sub_total",
+   "fieldtype": "Currency",
+   "label": "Sub Total"
+  },
+  {
+   "fieldname": "total_item_discount",
+   "fieldtype": "Currency",
+   "label": "Total Item Discount"
+  },
+  {
+   "fieldname": "total_poyalty_point_amount",
+   "fieldtype": "Currency",
+   "label": "Total Poyalty Point Amount"
+  },
+  {
+   "fieldname": "column_break_191",
+   "fieldtype": "Column Break"
   }
  ],
  "icon": "fa fa-file-text",
  "is_submittable": 1,
  "links": [],
- "modified": "2022-03-22 13:00:24.166684",
+ "modified": "2022-07-11 09:23:40.697437",
  "modified_by": "Administrator",
  "module": "Accounts",
  "name": "POS Invoice",
