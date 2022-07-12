@@ -1093,7 +1093,7 @@
    "type": "Link"
   }
  ],
- "modified": "2022-07-11 12:56:25.846383",
+ "modified": "2022-07-12 09:48:34.574905",
  "modified_by": "Administrator",
  "module": "Accounts",
  "name": "Accounting",
@@ -1103,7 +1103,7 @@
  "quick_lists": [],
  "restrict_to_domain": "",
  "roles": [],
- "sequence_id": 4.0,
+ "sequence_id": 6.0,
  "shortcuts": [
   {
    "label": "Chart of Accounts",

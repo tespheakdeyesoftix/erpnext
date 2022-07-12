@@ -477,6 +477,7 @@
    "options": "POS Item Group"
   },
   {
+   "description": "Only show Items from these Item Groups",
    "fieldname": "customer_groups",
    "fieldtype": "Table",
    "label": "Customer Groups",
@@ -570,7 +571,7 @@
    "link_fieldname": "pos_profile"
   }
  ],
- "modified": "2022-07-11 11:43:45.777290",
+ "modified": "2022-07-12 10:42:35.360091",
  "modified_by": "Administrator",
  "module": "Accounts",
  "name": "POS Profile",

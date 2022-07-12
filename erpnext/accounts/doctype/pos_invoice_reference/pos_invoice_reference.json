@@ -11,7 +11,8 @@
   "customer",
   "grand_total",
   "is_return",
-  "return_against"
+  "return_against",
+  "id"
  ],
  "fields": [
   {
@@ -66,11 +67,17 @@
    "label": "Return Against",
    "options": "POS Invoice",
    "read_only": 1
+  },
+  {
+   "fieldname": "id",
+   "fieldtype": "Data",
+   "hidden": 1,
+   "label": "id"
   }
  ],
  "istable": 1,
  "links": [],
- "modified": "2022-03-24 13:32:02.366257",
+ "modified": "2022-07-12 10:11:41.259686",
  "modified_by": "Administrator",
  "module": "Accounts",
  "name": "POS Invoice Reference",

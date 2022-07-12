@@ -323,7 +323,7 @@
    "type": "Link"
   }
  ],
- "modified": "2022-07-11 12:56:26.965941",
+ "modified": "2022-07-12 09:48:35.394025",
  "modified_by": "Administrator",
  "module": "Payroll",
  "name": "Payroll",
@@ -333,7 +333,7 @@
  "quick_lists": [],
  "restrict_to_domain": "",
  "roles": [],
- "sequence_id": 9.0,
+ "sequence_id": 11.0,
  "shortcuts": [
   {
    "label": "Salary Structure",

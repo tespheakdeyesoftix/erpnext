@@ -707,7 +707,7 @@
    "type": "Link"
   }
  ],
- "modified": "2022-07-11 12:56:29.313571",
+ "modified": "2022-07-12 09:48:34.794372",
  "modified_by": "Administrator",
  "module": "Stock",
  "name": "Stock",
@@ -717,7 +717,7 @@
  "quick_lists": [],
  "restrict_to_domain": "",
  "roles": [],
- "sequence_id": 15.0,
+ "sequence_id": 7.0,
  "shortcuts": [
   {
    "color": "Green",

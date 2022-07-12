@@ -142,17 +142,17 @@
    "type": "Link"
   }
  ],
- "modified": "2022-07-11 12:56:28.087159",
+ "modified": "2022-07-12 09:48:35.597993",
  "modified_by": "Administrator",
  "module": "Quality Management",
  "name": "Quality",
  "owner": "Administrator",
- "parent_page": "",
+ "parent_page": "Manufacturing",
  "public": 1,
  "quick_lists": [],
  "restrict_to_domain": "",
  "roles": [],
- "sequence_id": 12.0,
+ "sequence_id": 13.0,
  "shortcuts": [
   {
    "color": "Grey",

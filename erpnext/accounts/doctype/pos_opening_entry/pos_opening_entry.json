@@ -136,7 +136,7 @@
   },
   {
    "fieldname": "pos_username",
-   "fieldtype": "Text",
+   "fieldtype": "Data",
    "label": "Pos Username"
   },
   {
@@ -163,12 +163,13 @@
   {
    "fieldname": "id",
    "fieldtype": "Data",
+   "hidden": 1,
    "label": "id"
   }
  ],
  "is_submittable": 1,
  "links": [],
- "modified": "2022-07-09 16:37:28.779600",
+ "modified": "2022-07-11 17:17:37.760334",
  "modified_by": "Administrator",
  "module": "Accounts",
  "name": "POS Opening Entry",
