@@ -136,6 +136,7 @@
   "price_id",
   "wholesale_price_id",
   "id",
+  "other_information_tab",
   "keyword"
  ],
  "fields": [
@@ -154,7 +155,6 @@
    "label": "Item Code",
    "oldfieldname": "item_code",
    "oldfieldtype": "Data",
-   "reqd": 1,
    "unique": 1
   },
   {
@@ -1034,6 +1034,12 @@
    "fieldtype": "Table",
    "label": "Default warehouses",
    "options": "POS Item Warehouse Default"
+  },
+  {
+   "fieldname": "other_information_tab",
+   "fieldtype": "Tab Break",
+   "hidden": 1,
+   "label": "Other Information"
   }
  ],
  "icon": "fa fa-tag",
@@ -1041,7 +1047,7 @@
  "image_field": "image",
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2022-07-11 09:07:57.268204",
+ "modified": "2022-07-13 18:51:15.216031",
  "modified_by": "Administrator",
  "module": "Stock",
  "name": "Item",

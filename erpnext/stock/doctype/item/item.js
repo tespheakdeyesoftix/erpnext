@@ -151,10 +151,23 @@ frappe.ui.form.on("Item", {
 		});
 
 		frm.toggle_reqd('customer', frm.doc.is_customer_provided_item ? 1:0);
+
+		//customize code to disable item required
+		if (frm.is_new()) {
+			frm.set_df_property('item_code', 'reqd', 0)
+		}
 	},
 
 	validate: function(frm){
 		erpnext.item.weight_to_validate(frm);
+		//customize code to generate keyword
+		var keyword = frm.doc.name + ' ' + frm.doc.item_code + ' ' + frm.doc.item_name;
+        $.each(frm.doc.barcodes,  function(i,  d) {
+              keyword = keyword + ' ' + d.barcode;      
+        });
+        frm.doc.keyword = keyword;
+	
+
 	},
 
 	image: function() {
