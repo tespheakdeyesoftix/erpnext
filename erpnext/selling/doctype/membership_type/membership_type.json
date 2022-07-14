@@ -1,7 +1,7 @@
 {
  "actions": [],
  "allow_rename": 1,
- "autoname": "hash",
+ "autoname": "field:membership_type",
  "creation": "2022-07-11 10:02:00.266620",
  "doctype": "DocType",
  "editable_grid": 1,
@@ -18,7 +18,8 @@
    "fieldtype": "Data",
    "in_list_view": 1,
    "label": "Membership Type",
-   "reqd": 1
+   "reqd": 1,
+   "unique": 1
   },
   {
    "fieldname": "discount",
@@ -42,11 +43,11 @@
  ],
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2022-07-11 10:02:00.266620",
+ "modified": "2022-07-14 17:44:46.249706",
  "modified_by": "Administrator",
  "module": "Selling",
  "name": "Membership Type",
- "naming_rule": "Random",
+ "naming_rule": "By fieldname",
  "owner": "Administrator",
  "permissions": [
   {
