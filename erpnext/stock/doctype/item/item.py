@@ -151,6 +151,10 @@ class Item(Document):
 			doc.parentfield="barcodes"
 			doc.unit=self.stock_uom
 			doc.insert()
+	
+
+
+
 
 	def validate(self):
 

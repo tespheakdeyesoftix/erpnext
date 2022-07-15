@@ -23,6 +23,8 @@ class CustomerGroup(NestedSet):
 		if frappe.db.exists("Customer", self.name):
 			frappe.msgprint(_("A customer with the same name already exists"), raise_exception=1)
 
+	def after_insert(self):
+		frappe.get_doc({"doctype":"Version","ref_doctype":self.doctype, "docname": self.name}).insert()
 
 def get_parent_customer_groups(customer_group):
 	lft, rgt = frappe.db.get_value("Customer Group", customer_group, ["lft", "rgt"])

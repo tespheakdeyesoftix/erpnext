@@ -109,6 +109,9 @@ class ItemPrice(Document):
 				),
 				ItemPriceDuplicateItem,
 			)
+	
+	def after_insert(self):
+		frappe.get_doc({"doctype":"Version","ref_doctype":self.doctype, "docname": self.name}).insert()
 
 	def before_save(self):
 		if self.selling:

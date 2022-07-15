@@ -58,11 +58,13 @@
   },
   {
    "fieldname": "cb0",
-   "fieldtype": "Column Break"
+   "fieldtype": "Column Break",
+   "hidden": 1
   },
   {
    "fieldname": "default_price_list",
    "fieldtype": "Link",
+   "hidden": 1,
    "ignore_user_permissions": 1,
    "label": "Default Price List",
    "options": "Price List"
@@ -70,6 +72,7 @@
   {
    "fieldname": "payment_terms",
    "fieldtype": "Link",
+   "hidden": 1,
    "label": "Default Payment Terms Template",
    "options": "Payment Terms Template"
   },
@@ -113,6 +116,7 @@
   {
    "fieldname": "default_receivable_account",
    "fieldtype": "Section Break",
+   "hidden": 1,
    "label": "Default Receivable Account"
   },
   {
@@ -140,7 +144,7 @@
  "idx": 1,
  "is_tree": 1,
  "links": [],
- "modified": "2022-07-12 11:57:44.935025",
+ "modified": "2022-07-15 15:40:59.823243",
  "modified_by": "Administrator",
  "module": "Setup",
  "name": "Customer Group",

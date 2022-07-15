@@ -42,6 +42,9 @@ class Warehouse(NestedSet):
 	def on_update(self):
 		self.update_nsm_model()
 
+	def after_insert(self):
+		frappe.get_doc({"doctype":"Version","ref_doctype":self.doctype, "docname": self.name}).insert()
+
 	def update_nsm_model(self):
 		frappe.utils.nestedset.update_nsm(self)
 

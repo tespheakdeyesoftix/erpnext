@@ -3,7 +3,7 @@
 
 # For license information, please see license.txt
 
-
+import frappe
 from frappe import _, throw
 from frappe.model.document import Document
 from frappe.utils import cint, formatdate, get_datetime_str, nowdate
@@ -37,3 +37,6 @@ class CurrencyExchange(Document):
 
 		if not cint(self.for_buying) and not cint(self.for_selling):
 			throw(_("Currency Exchange must be applicable for Buying or for Selling."))
+
+	def after_insert(self):
+		frappe.get_doc({"doctype":"Version","ref_doctype":self.doctype, "docname": self.name}).insert()

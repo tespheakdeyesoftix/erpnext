@@ -102,6 +102,9 @@ class POSProfile(Document):
 	def on_update(self):
 		self.set_defaults()
 
+	def after_insert(self):
+		frappe.get_doc({"doctype":"Version","ref_doctype":self.doctype, "docname": self.name}).insert()
+
 	def on_trash(self):
 		self.set_defaults(include_current_pos=False)
 
