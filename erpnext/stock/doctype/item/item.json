@@ -194,6 +194,7 @@
    "search_index": 1
   },
   {
+   "default": "Unit",
    "fieldname": "stock_uom",
    "fieldtype": "Link",
    "ignore_user_permissions": 1,
@@ -544,6 +545,7 @@
    "label": "Allow Purchase"
   },
   {
+   "default": "Unit",
    "fieldname": "purchase_uom",
    "fieldtype": "Link",
    "label": "Default Purchase Unit of Measure",
@@ -661,6 +663,7 @@
    "options": "fa fa-tag"
   },
   {
+   "default": "Unit",
    "fieldname": "sales_uom",
    "fieldtype": "Link",
    "label": "Default Sales Unit of Measure",
@@ -1047,7 +1050,7 @@
  "image_field": "image",
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2022-07-13 18:51:15.216031",
+ "modified": "2022-07-15 17:32:29.084006",
  "modified_by": "Administrator",
  "module": "Stock",
  "name": "Item",
