@@ -151,6 +151,9 @@ class Item(Document):
 			doc.parentfield="barcodes"
 			doc.unit=self.stock_uom
 			doc.insert()
+
+		#add to version for track change
+		frappe.get_doc({"doctype":"Version","ref_doctype":self.doctype, "docname": self.name}).insert()
 	
 
 
