@@ -6,7 +6,8 @@
  "engine": "InnoDB",
  "field_order": [
   "default",
-  "user"
+  "user",
+  "username"
  ],
  "fields": [
   {
@@ -22,11 +23,18 @@
    "in_list_view": 1,
    "label": "User",
    "options": "User"
+  },
+  {
+   "fetch_from": "user.username",
+   "fieldname": "username",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "label": "Username"
   }
  ],
  "istable": 1,
  "links": [],
- "modified": "2020-05-13 23:57:33.627305",
+ "modified": "2022-07-15 16:38:42.015633",
  "modified_by": "Administrator",
  "module": "Accounts",
  "name": "POS Profile User",
@@ -35,5 +43,6 @@
  "quick_entry": 1,
  "sort_field": "modified",
  "sort_order": "DESC",
+ "states": [],
  "track_changes": 1
 }
