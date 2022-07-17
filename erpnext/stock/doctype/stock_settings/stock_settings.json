@@ -73,7 +73,7 @@
    "options": "Item Group"
   },
   {
-   "default": "Unit",
+   "default": "Nos",
    "fieldname": "stock_uom",
    "fieldtype": "Link",
    "in_list_view": 1,
@@ -347,7 +347,7 @@
  "index_web_pages_for_search": 1,
  "issingle": 1,
  "links": [],
- "modified": "2022-07-15 17:31:12.935273",
+ "modified": "2022-07-16 17:39:11.861807",
  "modified_by": "Administrator",
  "module": "Stock",
  "name": "Stock Settings",
