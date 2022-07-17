@@ -5,13 +5,13 @@ from frappe.utils import now
 
 @frappe.whitelist()
 def set_system_default_config():
-    
+    create_uom_unit()
     #update_selling_settings()
     #update_stock_settings()
     #create_webhook()
     #create_customer_display_image()
     #update_company()
-    create_general_customer()
+    #create_general_customer()
     
     return "Done"
     
@@ -113,6 +113,17 @@ def create_general_customer():
             "customer_type": "Individual",
             "territory": "Cambodia",
             "doctype": "Customer",
+        })
+        doc.insert()
+
+
+def create_uom_unit():
+     if not frappe.db.exists("UOM", {"name": "Unitx"}):
+        doc = frappe.get_doc({
+            "enabled": 1,
+            "uom_name": "Unitx",
+            "must_be_whole_number": 0,
+            "doctype": "UOM"
         })
         doc.insert()
 
