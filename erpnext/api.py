@@ -6,7 +6,6 @@ from frappe.utils import now
 @frappe.whitelist()
 def set_system_default_config():
 
-     
     update_system_settings()
     update_website_setting()
     create_uom_unit()
@@ -67,8 +66,13 @@ def set_system_default_config():
     create_user('stock_mgr','Stock Manager','Stock and Buyer Role','Stock and Buyer Profile','855855','mgr@123')
     create_user('sale','Sale','Sale and Marketing Role','Sale and Marketing Profile','855855','sale@123')
     
-    
-    
+    #default sync pos profile
+    create_user('sync-mpp','Sync-MPP','Sync Role','Sync Profile','','')
+
+
+    #create main pos profile
+    create_main_pos_profile()
+
 
     
     return "Done"
@@ -161,11 +165,15 @@ def update_company():
                 "image":"slideshow4",
             })
         
-        
-
-
-        
         doc.save()    
+
+def get_company():
+    companies = frappe.db.get_list('Company')
+    if len(companies)>0:
+        name = companies[0].name
+        return frappe.get_doc('Company',name)
+
+    
 
 def create_customer_display_image():
     if not frappe.db.exists("Image Galleries", {"name": "slideshow1"}):
@@ -713,6 +721,109 @@ def create_user(name,full_name,role_profile,module_profile,pos_password,backend_
 
 
 
+def create_main_pos_profile():
+    if not frappe.db.exists("POS Profile", {"name": 'Main POS Profile'}):
+            company = get_company()
+            api_secret = generate_sync_user_api()
+            user =  frappe.get_doc("User", "sync-mpp@mail.com")
+
+            doc = frappe.get_doc({
+                "name":"Main POS Profile",
+                "company": company.name,
+                "customer": "General Customer",
+                "country": "Cambodia",
+                "disabled": 0,
+                "warehouse": "Stores - " + company.abbr,
+                "api_user": "sync-mpp@mail.com",
+                "sync_assess_token": "token " + user.api_key + ":" + api_secret,
+                "hide_images": 1,
+                "hide_unavailable_items": 1,
+                "auto_add_item_to_cart": 1,
+                "validate_stock_on_save": 0,
+                "view_close_receipt_require_password": 0,
+                "view_shift_report_require_password": 0,
+                "include_sale_transaction_in_shift_report": 1,
+                "print_sale_summary_after_close_shift": 1,
+                "print_sale_product_after_close_shift": 1,
+                "print_sale_transaction_after_close_shist": 1,
+                "sale_return_require_password": 0,
+                "update_stock": 1,
+                "ignore_pricing_rule": 1,
+                "allow_rate_change": 1,
+                "allow_discount_change": 1,
+                "open_cashdrawer_require_password": 0,
+                "open_cashier_shift_require_password": 0,
+                "close_cashier_shift_require_password": 0,
+                "discount_item_require_password": 0,
+                "discount_sale_require_password": 0,
+                "change_rate_require_password": 0,
+                "change_unit_require_password": 0,
+                "delete_bill_require_password": 0,
+                "delete_item_require_password": 0,
+                "delete_item_require_note": 1,
+                "number_of_receipt_copies": 1,
+                "pos_document_number": "SOyyyy-0000",
+                "open_shift_document_number": "0000",
+                "close_shift_document_number": "0000",
+                "predefine_discount_code": "5,10,15,50,25,30,35,40,45,50,100",
+                "selling_price_list": "Standard Selling",
+                "currency": "USD",
+                "write_off_account": "5111 - Cost of Goods Sold - " + company.abbr,
+                "write_off_cost_center": "Main - " + company.abbr,
+                "account_for_change_amount": "1110 - Cash - " + company.abbr,
+                "apply_discount_on": "Grand Total",
+                "doctype": "POS Profile",
+                "applicable_for_users": [
+                    {
+                        "default": 1,
+                        "doctype": "POS Profile User",
+                        "username": "cashier",
+                        "user": "cashier@mail.com"
+
+                    }
+                ],
+                
+                "payments": [
+                    {
+                        "default": 1,
+                        "allow_in_returns": 1,
+                        "mode_of_payment": "Cash",
+                        "allow_enter_cash_float": 1,
+                        "is_second_currency": 0,
+                        "mode_of_payment_type": "Cash",
+                        "doctype": "POS Payment Method"
+                    },
+                    {
+                        "doctype": "POS Payment Method",
+                        "default": 0,
+                        "allow_in_returns": 0,
+                        "allow_enter_cash_float": 1,
+                        "is_second_currency": 1,
+                        "mode_of_payment_type": "Cash",
+                        "mode_of_payment": "Cash KHR",
+                    },
+                    {
+                        "doctype": "POS Payment Method",
+                        "default": 0,
+                        "allow_in_returns": 0,
+                        "allow_enter_cash_float": 0,
+                        "is_second_currency": 0,
+                        "mode_of_payment_type": "Bank",
+                        "mode_of_payment": "ABA"
+                    },
+                    {
+                        "doctype": "POS Payment Method",
+                        "default": 0,
+                        "allow_in_returns": 0,
+                        "allow_enter_cash_float": 0,
+                        "is_second_currency": 1,
+                        "mode_of_payment_type": "Bank",
+                        "mode_of_payment": "ABA KHR"
+                    }
+                ]
+            })
+            doc.insert()   
+
 def all_modules():
     return ["Core",
             "Website",
@@ -832,4 +943,16 @@ def create_webhook():
         })
         doc.insert()
         
+def generate_sync_user_api():
+    user_details = frappe.get_doc("User", "sync-mpp@mail.com")
+    api_secret = frappe.generate_hash(length=15)
+    if not user_details.api_key:
+        api_key = frappe.generate_hash(length=15)
+        user_details.api_key = api_key
+        user_details.api_secret = api_secret
+        user_details.save()
+    
+    
+    
 
+    return  api_secret
