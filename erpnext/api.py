@@ -850,7 +850,7 @@ def create_default_payment_type():
 
 
     # ABA Riel
-    if not frappe.db.exists("Mode of Payment",{"name":'ABA'}):
+    if not frappe.db.exists("Mode of Payment",{"name":'ABA KHR'}):
         doc= frappe.get_doc({
             "mode_of_payment": "ABA KHR",
             "enabled": 1,
