@@ -7,16 +7,17 @@ from frappe.utils import now
 def set_system_default_config():
 
      
-
+    
     update_system_settings()
     update_website_setting()
     create_uom_unit()
+    create_general_customer()
     update_selling_settings()
     update_stock_settings()
     create_webhook()
     create_customer_display_image()
     update_company()
-    create_general_customer()
+   
     delete_unuse_uom_conversion()
     delete_unuse_uom()
     delete_unuse_currency()
