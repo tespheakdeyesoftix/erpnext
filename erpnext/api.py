@@ -78,17 +78,14 @@ def set_system_default_config():
 
 
     #create payment type
-    
+    create_default_payment_type()
 
     #create main pos profile
     create_main_pos_profile()
 
     create_currency_exchange_rate()
-
-
-
-
-
+ 
+    delete_unuse_language()
     
     return "Done"
     
@@ -306,6 +303,14 @@ def delete_unuse_currency():
         if frappe.db.exists("Currency", {"name": d}):
             doc = frappe.get_doc('Currency', d)
             doc.delete()
+
+def delete_unuse_language():
+    datas = ['zh-TW','zh','vi','uz','ur','uk','tr','th','te','ta','sw','sv','sr-BA','sr','sq','sl','sk','si','rw','ru','ro','pt-BR','pt','ps','pl','no','nl','my','ms','mr','ml','mk','lv','lt','lo','ku','ko','kn','ja','it','is','id','hu','hr','hi','he','gu','fr-CA','fr','fil','fi','fa','et','es-PE','es-NI','es-MX','es-GT','es-EC','es-DO','es-CO','es-CL','es-BO','es-AR','es','el','de','da-DK','da','cs','ca','bs','bo','bn','bg','ar','am','af','en-GB']
+    for d in datas:
+        if frappe.db.exists("Language", {"name": d}):
+            doc = frappe.get_doc('Language', d)
+            doc.delete()
+            
 
 def create_default_branch():
     companies = frappe.db.get_list('Company')
@@ -784,6 +789,61 @@ def create_default_vendor():
             "doctype": "Supplier"
         })
         doc.insert()
+
+def create_default_payment_type():
+    company = get_company()
+    if not frappe.db.exists("Mode of Payment",{"name":'Cash KHR'}):
+        doc= frappe.get_doc({
+            "mode_of_payment": "Cash KHR",
+            "enabled": 1,
+            "type": "Cash",
+            "doctype": "Mode of Payment",
+            "accounts": [
+                {
+                    "company": company.company_name,
+                    "default_account": "1110 - Cash - " + company.abbr,
+                    "doctype": "Mode of Payment Account"
+                }
+            ]
+        })
+        doc.insert()
+    #ABA 
+    if not frappe.db.exists("Mode of Payment",{"name":'ABA'}):
+        doc= frappe.get_doc({
+            "mode_of_payment": "ABA",
+            "enabled": 1,
+            "type": "Bank",
+            "doctype": "Mode of Payment",
+            "accounts": [
+                {
+                    "company": company.company_name,
+                    "default_account": "ABA - " + company.abbr,
+                    "doctype": "Mode of Payment Account"
+                }
+            ]
+        })
+        doc.insert()
+
+
+    # ABA Riel
+    if not frappe.db.exists("Mode of Payment",{"name":'ABA'}):
+        doc= frappe.get_doc({
+            "mode_of_payment": "ABA KHR 1",
+            "enabled": 1,
+            "type": "Bank",
+            "doctype": "Mode of Payment",
+            "accounts": [
+                {
+                    "company": company.company_name,
+                    "default_account": "ABA - " + company.abbr,
+                    "doctype": "Mode of Payment Account"
+                }
+            ]
+        })
+        doc.insert()
+    
+
+        
 
 def create_main_pos_profile():
     if not frappe.db.exists("POS Profile", {"name": 'Main POS Profile'}):
