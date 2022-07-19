@@ -350,10 +350,10 @@ def create_comment_role():
             doc.insert()
 
 def create_translate_role():
-    if not frappe.db.exists("Role", {"role_name": "Translate"}):
+    if not frappe.db.exists("Role", {"role_name": "Translator"}):
             doc = frappe.get_doc(
                 {
-                   "role_name": "Translate",
+                   "role_name": "Translator",
                     "disabled": 0,
                     "is_custom": 0,
                     "desk_access": 1,
@@ -638,7 +638,7 @@ def create_admin_role_profile():
                         "doctype": "Has Role"
                     },
                     {
-                        "role": "Translate",
+                        "role": "Translator",
                         "doctype": "Has Role"
                     },
                     {
