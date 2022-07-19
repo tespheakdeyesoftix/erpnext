@@ -95,7 +95,7 @@ def update_system_settings():
     doc = frappe.get_doc('System Settings')
     doc.app_name = 'ePOS Retail'
     doc.enable_onboarding = 0
-    doc.system_logo= 'http://webmonitor.inccloudserver.com:1111/epos_retail/asset/epos_retail_app_logo.png'
+    doc.system_logo= '/files/epos_retail_app_logo.png'
     doc.pos_date_format = 'dd/mm/yyyy'
     doc.pos_datetime_format = 'dd/MM/yyyy hh:mm:ss tt'
     doc.pos_currency_name ="Dollar"
@@ -130,6 +130,14 @@ def update_buying_settings():
         ignore_permissions=True
     )
 
+
+def update_navbar_settings():
+    doc = frappe.get_doc('Navbar Settings')
+    doc.app_logo= '/files/estc_retail_logo.png'
+    doc.save(
+        ignore_permissions=True
+    ) 
+
 def update_stock_settings():
     doc = frappe.get_doc('Stock Settings')
     doc.item_naming_by = 'Item Code'
@@ -162,9 +170,9 @@ def update_company():
         doc = frappe.get_doc('Company',name)
         doc.phone_no = "0123456789"
         doc.address = "Siemreap, Cambodia"
-        doc.company_logo = "http://webmonitor.inccloudserver.com:1111/epos_retail/asset/retaillogo.png"
-        doc.pos_background_image = "http://webmonitor.inccloudserver.com:1111/epos_retail/asset/bg01.jpg"
-        doc.pos_customer_display_thank_you_background = "http://webmonitor.inccloudserver.com:1111/epos_retail/asset/thank.jpg"
+        doc.company_logo = "/files/retaillogo.png"
+        doc.pos_background_image = "/files/bg01.jpg"
+        doc.pos_customer_display_thank_you_background = "/files/thank.jpg"
 
      
         if not any(d.get('image') == 'slideshow1' for d in doc.customer_display_slideshow):
@@ -201,7 +209,7 @@ def create_customer_display_image():
     if not frappe.db.exists("Image Galleries", {"name": "slideshow1"}):
         doc = frappe.get_doc({
             "doctype": "Image Galleries",
-            "image":"http://webmonitor.inccloudserver.com:1111/epos_retail/asset/slideshow1.jpg",
+            "image":"/files/slideshow1.jpg",
             "description":"slideshow1"
         })
         doc.insert()
@@ -209,7 +217,7 @@ def create_customer_display_image():
     if not frappe.db.exists("Image Galleries", {"name": "slideshow2"}):
         doc = frappe.get_doc({
             "doctype": "Image Galleries",
-            "image":"http://webmonitor.inccloudserver.com:1111/epos_retail/asset/slideshow2.jpg",
+            "image":"/files/slideshow2.jpg",
             "description":"slideshow2"
         })
         doc.insert()
@@ -217,14 +225,14 @@ def create_customer_display_image():
     if not frappe.db.exists("Image Galleries", {"name": "slideshow3"}):
         doc = frappe.get_doc({
             "doctype": "Image Galleries",
-            "image":"http://webmonitor.inccloudserver.com:1111/epos_retail/asset/slideshow3.jpg",
+            "image":"/files/slideshow3.jpg",
             "description":"slideshow3"
         })
         doc.insert()
     if not frappe.db.exists("Image Galleries", {"name": "slideshow4"}):
         doc = frappe.get_doc({
             "doctype": "Image Galleries",
-            "image":"http://webmonitor.inccloudserver.com:1111/epos_retail/asset/slideshow4.jpg",
+            "image":"/files/slideshow4.jpg",
             "description":"slideshow4"
         })
         doc.insert()
