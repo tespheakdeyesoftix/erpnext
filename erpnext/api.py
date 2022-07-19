@@ -34,6 +34,7 @@ def set_system_default_config():
 
     create_comment_role()
     create_admin_role()
+    create_translate_role()
     create_sync_role_profile()
     create_seller_role_profile()
     create_stock_role_profile()
@@ -61,7 +62,7 @@ def set_system_default_config():
 
     #create user
     #create_user(name,full_name,role_profile,module_profile,pos_password,backend_password)
-    
+
     #default pos user
     create_user('cashier','Cashier','Seller Role','Seller Profile','855855','')
     
@@ -347,6 +348,28 @@ def create_comment_role():
                 }
             )
             doc.insert()
+
+def create_translate_role():
+    if not frappe.db.exists("Role", {"role_name": "Translate"}):
+            doc = frappe.get_doc(
+                {
+                   "role_name": "Translate",
+                    "disabled": 0,
+                    "is_custom": 0,
+                    "desk_access": 1,
+                    "two_factor_auth": 0,
+                    "search_bar": 1,
+                    "notifications": 1,
+                    "list_sidebar": 1,
+                    "bulk_actions": 1,
+                    "view_switcher": 1,
+                    "form_sidebar": 1,
+                    "timeline": 1,
+                    "dashboard": 1
+                }
+            )
+            doc.insert()
+
 
 def create_admin_role():
     if not frappe.db.exists("Role", {"role_name": "Admin User"}):
