@@ -7,7 +7,7 @@ from frappe.utils import now
 def set_system_default_config():
 
      
-    
+    update_navbar_settings()
     update_system_settings()
     update_website_setting()
     create_uom_unit()
