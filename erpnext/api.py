@@ -6,19 +6,26 @@ from frappe.utils import now
 @frappe.whitelist()
 def set_system_default_config():
 
+     
+
     update_system_settings()
     update_website_setting()
     create_uom_unit()
-    #update_selling_settings()
-    #update_stock_settings()
-    #create_webhook()
-    #create_customer_display_image()
-    #update_company()
-    #create_general_customer()
+    update_selling_settings()
+    update_stock_settings()
+    create_webhook()
+    create_customer_display_image()
+    update_company()
+    create_general_customer()
     delete_unuse_uom_conversion()
     delete_unuse_uom()
     delete_unuse_currency()
     create_default_branch()
+
+    create_default_vendor()
+    #update buying setting 
+    update_buying_settings()
+
 
 
 
@@ -70,8 +77,16 @@ def set_system_default_config():
     create_user('sync-mpp','Sync-MPP','Sync Role','Sync Profile','','')
 
 
+    #create payment type
+    
+
     #create main pos profile
     create_main_pos_profile()
+
+    create_currency_exchange_rate()
+
+
+
 
 
     
@@ -104,6 +119,14 @@ def update_system_settings():
 def update_selling_settings():
     doc = frappe.get_doc('Selling Settings')
     doc.cust_master_name = 'Naming Series'
+    doc.save(
+        ignore_permissions=True
+    )
+
+def update_buying_settings():
+    doc = frappe.get_doc('Buying Settings')
+    doc.supp_master_name = 'Naming Series'
+    doc.supplier_group = 'All Supplier Groups'
     doc.save(
         ignore_permissions=True
     )
@@ -720,6 +743,47 @@ def create_user(name,full_name,role_profile,module_profile,pos_password,backend_
     
 
 
+def create_currency_exchange_rate():
+    if not frappe.db.exists("Currency Exchange",{"date":today()}):
+        company = get_company()
+        doc= frappe.get_doc({
+            "date": today(),
+            "company": company.company_name,
+            "from_currency": "USD",
+            "to_currency": "Riel",
+            "exchange_rate": 4000,
+            "for_buying": 1,
+            "for_selling": 1,
+            "doctype": "Currency Exchange"
+        })
+        doc.insert()
+
+
+def create_default_vendor():
+    if not frappe.db.exists("Supplier",{"name":'General Vendor'}):
+        company = get_company()
+        doc= frappe.get_doc({
+            "supplier_name": "General Vendor",
+            "country": "Cambodia",
+            "supplier_group": "All Supplier Groups",
+            "supplier_type": "Company",
+            "allow_purchase_invoice_creation_without_purchase_order": 1,
+            "allow_purchase_invoice_creation_without_purchase_receipt": 1,
+            "is_internal_supplier": 0,
+            "represents_company": "",
+            "disabled": 0,
+            "is_transporter": 0,
+            "warn_rfqs": 0,
+            "warn_pos": 0,
+            "prevent_rfqs": 0,
+            "prevent_pos": 0,
+            "on_hold": 0,
+            "hold_type": "",
+            "language": "en",
+            "is_frozen": 0,
+            "doctype": "Supplier"
+        })
+        doc.insert()
 
 def create_main_pos_profile():
     if not frappe.db.exists("POS Profile", {"name": 'Main POS Profile'}):
