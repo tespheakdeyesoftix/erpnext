@@ -5,7 +5,7 @@ from frappe.utils import now
 
 @frappe.whitelist()
 def set_system_default_config():
-
+    create_translate_role()
      
     update_navbar_settings()
     update_system_settings()
@@ -35,7 +35,7 @@ def set_system_default_config():
 
     create_comment_role()
     create_admin_role()
-    create_translate_role()
+
     create_sync_role_profile()
     create_seller_role_profile()
     create_stock_role_profile()
@@ -68,8 +68,9 @@ def set_system_default_config():
     create_user('cashier','Cashier','Seller Role','Seller Profile','855855','')
     
     #default backend user
+    update_admin_user()
     create_user('seller','Seller','Seller Role','Seller Profile','','seller@123')
-    create_user('admin','Admin','Admin Role','Admin Profile','855855','admin@123')
+    
     create_user('stock','Stock','Stock Role','Stock Profile','855855','stock@123')
     create_user('buyer','Buyer','Buyer Role','Buyer Profile','855855','buyer@123')
     create_user('stock_mgr','Stock Manager','Stock and Buyer Role','Stock and Buyer Profile','855855','mgr@123')
@@ -95,7 +96,7 @@ def update_system_settings():
     doc = frappe.get_doc('System Settings')
     doc.app_name = 'ePOS Retail'
     doc.enable_onboarding = 0
-    doc.system_logo= '/files/epos_retail_app_logo.png'
+    doc.system_logo= '/assets/frappe/images/epos_retail_app_logo.png'
     doc.pos_date_format = 'dd/mm/yyyy'
     doc.pos_datetime_format = 'dd/MM/yyyy hh:mm:ss tt'
     doc.pos_currency_name ="Dollar"
@@ -133,7 +134,7 @@ def update_buying_settings():
 
 def update_navbar_settings():
     doc = frappe.get_doc('Navbar Settings')
-    doc.app_logo= '/files/estc_retail_logo.png'
+    doc.app_logo= '/assets/frappe/images/estc_retail_logo.png'
     doc.save(
         ignore_permissions=True
     ) 
@@ -170,9 +171,9 @@ def update_company():
         doc = frappe.get_doc('Company',name)
         doc.phone_no = "0123456789"
         doc.address = "Siemreap, Cambodia"
-        doc.company_logo = "/files/retaillogo.png"
-        doc.pos_background_image = "/files/bg01.jpg"
-        doc.pos_customer_display_thank_you_background = "/files/thank.jpg"
+        doc.company_logo = "/assets/frappe/images/retaillogo.png"
+        doc.pos_background_image = "/assets/frappe/images/bg01.jpg"
+        doc.pos_customer_display_thank_you_background = "/assets/frappe/images/thank.jpg"
 
      
         if not any(d.get('image') == 'slideshow1' for d in doc.customer_display_slideshow):
@@ -209,7 +210,7 @@ def create_customer_display_image():
     if not frappe.db.exists("Image Galleries", {"name": "slideshow1"}):
         doc = frappe.get_doc({
             "doctype": "Image Galleries",
-            "image":"/files/slideshow1.jpg",
+            "image":"/assets/frappe/images/slideshow1.jpg",
             "description":"slideshow1"
         })
         doc.insert()
@@ -217,7 +218,7 @@ def create_customer_display_image():
     if not frappe.db.exists("Image Galleries", {"name": "slideshow2"}):
         doc = frappe.get_doc({
             "doctype": "Image Galleries",
-            "image":"/files/slideshow2.jpg",
+            "image":"/assets/frappe/images/slideshow2.jpg",
             "description":"slideshow2"
         })
         doc.insert()
@@ -225,14 +226,14 @@ def create_customer_display_image():
     if not frappe.db.exists("Image Galleries", {"name": "slideshow3"}):
         doc = frappe.get_doc({
             "doctype": "Image Galleries",
-            "image":"/files/slideshow3.jpg",
+            "image":"/assets/frappe/images/slideshow3.jpg",
             "description":"slideshow3"
         })
         doc.insert()
     if not frappe.db.exists("Image Galleries", {"name": "slideshow4"}):
         doc = frappe.get_doc({
             "doctype": "Image Galleries",
-            "image":"/files/slideshow4.jpg",
+            "image":"/assets/frappe/images/slideshow4.jpg",
             "description":"slideshow4"
         })
         doc.insert()
@@ -374,7 +375,8 @@ def create_translate_role():
                     "view_switcher": 1,
                     "form_sidebar": 1,
                     "timeline": 1,
-                    "dashboard": 1
+                    "dashboard": 1,
+                    "doctype": "Role"
                 }
             )
             doc.insert()
@@ -732,7 +734,6 @@ def get_block_modules(modules):
 
 
 def create_user(name,full_name,role_profile,module_profile,pos_password,backend_password):
-    
     if not frappe.db.exists("User", {"username": name}):
        
         roles = frappe.get_doc('Role Profile', role_profile).roles
@@ -778,7 +779,42 @@ def create_user(name,full_name,role_profile,module_profile,pos_password,backend_
         })
         doc.insert() 
     
+def update_admin_user():
+    if frappe.db.exists("User", {"name": "admin@mail.com"}):
+       
+        roles = frappe.get_doc('Role Profile', "Admin Role").roles
+        new_roles = []
+        
 
+        doc = frappe.get_doc('User','admin@mail.com')
+        doc.role_profile = "Admin Role"
+        doc.role_profile_name="Admin Role"
+        doc.module_profile = "Admin Profile"
+        doc.pos_password =  "admin@123"
+        doc.allow_start_cashier_shift = 1
+        doc.allow_open_cashdrawer =  1
+        doc.allow_view_close_receipt = 1
+        doc.allow_view_shift_report = 1
+        doc.allow_close_cashier_shift = 1 
+        doc.allow_sale_return_transaction= 1
+        doc.allow_sale_discount= 1
+        doc.allow_item_discount = 1 
+        doc.allow_delete_order_item= 1
+        doc.allow_change_item_price= 1
+        doc.allow_change_unit= 1
+        doc.allow_delete_bill= 1
+        doc.allow_switch_pos_profile= 1
+        doc.allow_change_price_list_rate =1
+        doc.allow_reset_receipt_number_in_current_station = 1
+        doc.allow_reset_receipt_number_in_all_station = 1 
+        doc.gender="Male" 
+        doc.new_password= "admin@123"
+        for r in roles:
+            doc.append("roles", {"role":r.role,"doctype":r.doctype})
+             
+     
+        doc.save() 
+   
 
 def create_currency_exchange_rate():
     if not frappe.db.exists("Currency Exchange",{"date":today()}):

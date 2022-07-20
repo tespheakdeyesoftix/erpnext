@@ -494,6 +494,14 @@ body.custom-bd{
     font-size: 14px;
     line-height: 14px;
 }
+.setup-wizard-slide .control-label{
+     color: #333 !important;
+}
+
+.setup-wizard-slide .btn{
+    color: #fff !important;
+    background-color: #007fff!important;
+}
 
 
 @media (min-width: 1100px){
@@ -509,3 +517,4 @@ body.custom-bd{
         box-shadow: unset;
     }
 }
+
