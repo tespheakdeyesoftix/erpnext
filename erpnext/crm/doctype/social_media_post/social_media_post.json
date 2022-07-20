@@ -152,10 +152,11 @@
  ],
  "is_submittable": 1,
  "links": [],
- "modified": "2021-04-14 14:24:59.821223",
+ "modified": "2022-07-20 14:45:14.108501",
  "modified_by": "Administrator",
  "module": "CRM",
  "name": "Social Media Post",
+ "naming_rule": "Expression",
  "owner": "Administrator",
  "permissions": [
   {
@@ -171,38 +172,11 @@
    "share": 1,
    "submit": 1,
    "write": 1
-  },
-  {
-   "cancel": 1,
-   "create": 1,
-   "delete": 1,
-   "email": 1,
-   "export": 1,
-   "print": 1,
-   "read": 1,
-   "report": 1,
-   "role": "Sales User",
-   "share": 1,
-   "submit": 1,
-   "write": 1
-  },
-  {
-   "cancel": 1,
-   "create": 1,
-   "delete": 1,
-   "email": 1,
-   "export": 1,
-   "print": 1,
-   "read": 1,
-   "report": 1,
-   "role": "Sales Manager",
-   "share": 1,
-   "submit": 1,
-   "write": 1
   }
  ],
  "sort_field": "modified",
  "sort_order": "DESC",
+ "states": [],
  "title_field": "title",
  "track_changes": 1
 }

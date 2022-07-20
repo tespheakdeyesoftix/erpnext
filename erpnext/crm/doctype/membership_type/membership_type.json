@@ -43,9 +43,9 @@
  ],
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2022-07-20 15:20:34.395146",
+ "modified": "2022-07-20 15:27:26.414271",
  "modified_by": "Administrator",
- "module": "Selling",
+ "module": "CRM",
  "name": "Membership Type",
  "naming_rule": "By fieldname",
  "owner": "Administrator",
@@ -81,6 +81,7 @@
    "read": 1,
    "report": 1,
    "role": "Sales User",
+   "select": 1,
    "share": 1,
    "write": 1
   },
@@ -93,6 +94,7 @@
    "read": 1,
    "report": 1,
    "role": "Sales Manager",
+   "select": 1,
    "share": 1,
    "write": 1
   }

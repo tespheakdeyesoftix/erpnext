@@ -51,7 +51,7 @@ def set_system_default_config():
     create_module_profile('Stock Profile',['Stock','Communication'])
     create_module_profile('Buyer Profile',['Buying','Communication'])
     create_module_profile('Stock and Buyer Profile',['Buying','Communication','Stock'])
-    create_module_profile('Sale and Marketing Profile',['CRM','Communication'])
+    create_module_profile('Sale and Marketing Profile',['CRM'])
     create_module_profile('Sync Profile',['Communication'])
 
     
@@ -97,7 +97,7 @@ def update_system_settings():
     doc.app_name = 'ePOS Retail'
     doc.enable_onboarding = 0
     doc.system_logo= '/assets/frappe/images/epos_retail_app_logo.png'
-    doc.pos_date_format = 'dd/mm/yyyy'
+    doc.pos_date_format = 'dd/MM/yyyy'
     doc.pos_datetime_format = 'dd/MM/yyyy hh:mm:ss tt'
     doc.pos_currency_name ="Dollar"
     doc.pos_currency_symbol="$"
@@ -247,6 +247,7 @@ def create_general_customer():
             "customer_group": "All Customer Groups",
             "customer_type": "Individual",
             "territory": "Cambodia",
+            "allow_discount_on_birthday":0,
             "doctype": "Customer",
         })
         doc.insert()
@@ -573,7 +574,7 @@ def create_sale_and_marketing_role_profile():
                         "doctype": "Has Role"
                     },
                     {
-                        "role": "Customer",
+                        "role": "Sales User",
                         "doctype": "Has Role"
                     }
                 ]
@@ -790,6 +791,7 @@ def update_admin_user():
         doc.role_profile = "Admin Role"
         doc.role_profile_name="Admin Role"
         doc.module_profile = "Admin Profile"
+        doc.allow_login_to_pos=1,
         doc.pos_password =  "admin@123"
         doc.allow_start_cashier_shift = 1
         doc.allow_open_cashdrawer =  1
@@ -963,6 +965,7 @@ def create_main_pos_profile():
                 "write_off_account": "5111 - Cost of Goods Sold - " + company.abbr,
                 "write_off_cost_center": "Main - " + company.abbr,
                 "account_for_change_amount": "1110 - Cash - " + company.abbr,
+                "cost_center": "Main - " + company.abbr,
                 "apply_discount_on": "Grand Total",
                 "doctype": "POS Profile",
                 "applicable_for_users": [

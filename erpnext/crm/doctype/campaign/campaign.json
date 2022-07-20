@@ -67,10 +67,11 @@
  "icon": "fa fa-bullhorn",
  "idx": 1,
  "links": [],
- "modified": "2021-06-30 18:05:06.412712",
+ "modified": "2022-07-20 14:44:39.390033",
  "modified_by": "Administrator",
  "module": "CRM",
  "name": "Campaign",
+ "naming_rule": "By \"Naming Series\" field",
  "owner": "Administrator",
  "permissions": [
   {
@@ -78,34 +79,17 @@
    "delete": 1,
    "email": 1,
    "export": 1,
-   "import": 1,
    "print": 1,
    "read": 1,
    "report": 1,
-   "role": "Sales Manager",
-   "set_user_permissions": 1,
-   "write": 1
-  },
-  {
-   "email": 1,
-   "print": 1,
-   "read": 1,
-   "report": 1,
-   "role": "Sales User"
-  },
-  {
-   "create": 1,
-   "delete": 1,
-   "email": 1,
-   "print": 1,
-   "read": 1,
-   "report": 1,
-   "role": "Sales Master Manager",
+   "role": "System Manager",
+   "select": 1,
    "share": 1,
    "write": 1
   }
  ],
  "quick_entry": 1,
  "sort_field": "modified",
- "sort_order": "DESC"
+ "sort_order": "DESC",
+ "states": []
 }
