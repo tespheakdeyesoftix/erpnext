@@ -207,7 +207,7 @@
  "image_field": "image",
  "links": [],
  "max_attachments": 5,
- "modified": "2022-02-21 08:08:23.999236",
+ "modified": "2022-07-20 18:27:01.705568",
  "modified_by": "Administrator",
  "module": "Stock",
  "name": "Batch",
@@ -223,7 +223,7 @@
    "print": 1,
    "read": 1,
    "report": 1,
-   "role": "Item Manager",
+   "role": "System Manager",
    "set_user_permissions": 1,
    "share": 1,
    "write": 1

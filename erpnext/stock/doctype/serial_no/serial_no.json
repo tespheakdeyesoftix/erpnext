@@ -433,7 +433,7 @@
  "icon": "fa fa-barcode",
  "idx": 1,
  "links": [],
- "modified": "2021-12-23 10:44:30.299450",
+ "modified": "2022-07-20 18:26:31.548974",
  "modified_by": "Administrator",
  "module": "Stock",
  "name": "Serial No",
@@ -447,29 +447,9 @@
    "print": 1,
    "read": 1,
    "report": 1,
-   "role": "Item Manager",
+   "role": "System Manager",
    "share": 1,
    "write": 1
-  },
-  {
-   "create": 1,
-   "delete": 1,
-   "email": 1,
-   "export": 1,
-   "import": 1,
-   "print": 1,
-   "read": 1,
-   "report": 1,
-   "role": "Stock Manager",
-   "set_user_permissions": 1,
-   "write": 1
-  },
-  {
-   "email": 1,
-   "print": 1,
-   "read": 1,
-   "report": 1,
-   "role": "Stock User"
   }
  ],
  "search_fields": "item_code",

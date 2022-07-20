@@ -707,7 +707,7 @@
    "type": "Link"
   }
  ],
- "modified": "2022-07-12 09:48:34.794372",
+ "modified": "2022-07-20 18:03:22.537925",
  "modified_by": "Administrator",
  "module": "Stock",
  "name": "Stock",
@@ -716,7 +716,14 @@
  "public": 1,
  "quick_lists": [],
  "restrict_to_domain": "",
- "roles": [],
+ "roles": [
+  {
+   "role": "Stock Manager"
+  },
+  {
+   "role": "Stock User"
+  }
+ ],
  "sequence_id": 7.0,
  "shortcuts": [
   {

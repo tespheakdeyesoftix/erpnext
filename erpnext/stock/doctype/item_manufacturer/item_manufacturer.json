@@ -64,7 +64,7 @@
   }
  ],
  "links": [],
- "modified": "2020-04-07 20:25:55.507905",
+ "modified": "2022-07-20 18:17:14.073065",
  "modified_by": "Administrator",
  "module": "Stock",
  "name": "Item Manufacturer",
@@ -78,31 +78,7 @@
    "print": 1,
    "read": 1,
    "report": 1,
-   "role": "Stock User",
-   "share": 1,
-   "write": 1
-  },
-  {
-   "create": 1,
-   "delete": 1,
-   "email": 1,
-   "export": 1,
-   "print": 1,
-   "read": 1,
-   "report": 1,
-   "role": "Stock Manager",
-   "share": 1,
-   "write": 1
-  },
-  {
-   "create": 1,
-   "delete": 1,
-   "email": 1,
-   "export": 1,
-   "print": 1,
-   "read": 1,
-   "report": 1,
-   "role": "Item Manager",
+   "role": "System Manager",
    "share": 1,
    "write": 1
   }
@@ -110,6 +86,7 @@
  "quick_entry": 1,
  "sort_field": "modified",
  "sort_order": "ASC",
+ "states": [],
  "title_field": "item_code",
  "track_changes": 1
 }

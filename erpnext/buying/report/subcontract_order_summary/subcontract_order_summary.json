@@ -9,7 +9,7 @@
  "filters": [],
  "idx": 0,
  "is_standard": "Yes",
- "modified": "2021-05-31 14:43:32.417694",
+ "modified": "2022-07-20 16:47:46.248461",
  "modified_by": "Administrator",
  "module": "Buying",
  "name": "Subcontract Order Summary",
@@ -20,13 +20,7 @@
  "report_type": "Script Report",
  "roles": [
   {
-   "role": "Stock User"
-  },
-  {
-   "role": "Purchase Manager"
-  },
-  {
-   "role": "Purchase User"
+   "role": "System Manager"
   }
  ]
 }

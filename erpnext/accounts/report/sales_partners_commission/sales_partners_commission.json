@@ -9,7 +9,7 @@
  "filters": [],
  "idx": 3,
  "is_standard": "Yes",
- "modified": "2021-10-06 06:26:07.881340",
+ "modified": "2022-07-20 17:16:55.950924",
  "modified_by": "Administrator",
  "module": "Accounts",
  "name": "Sales Partners Commission",
@@ -21,10 +21,7 @@
  "report_type": "Query Report",
  "roles": [
   {
-   "role": "Accounts Manager"
-  },
-  {
-   "role": "Accounts User"
+   "role": "System Manager"
   }
  ]
 }

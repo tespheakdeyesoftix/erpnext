@@ -46,7 +46,7 @@ def set_system_default_config():
     create_admin_role_profile()
 
     #create module profile
-    create_module_profile('Admin Profile',['Core','Desk','Contacts','Buying','Stock','Communication','Bulk Transaction','Printing','CRM','Selling'])
+    create_module_profile('Admin Profile',['Setup','Desk','Contacts','Buying','Stock','Communication','Bulk Transaction','Printing','CRM','Selling'])
     create_module_profile('Seller Profile',['Desk','Communication','CRM','Selling'])
     create_module_profile('Stock Profile',['Stock','Communication'])
     create_module_profile('Buyer Profile',['Buying','Communication'])
@@ -58,6 +58,8 @@ def set_system_default_config():
     disable_unuse_stock_entry_type()
 
     create_wholesale_price_list()
+ 
+    
     create_currency_riel()
 
 
@@ -68,6 +70,10 @@ def set_system_default_config():
     create_user('cashier','Cashier','Seller Role','Seller Profile','855855','')
     
     #default backend user
+
+    frappe.db.set_value('Role', 'Purchase Master Manager', 'disabled', 0, update_modified=False)
+
+
     update_admin_user()
     create_user('seller','Seller','Seller Role','Seller Profile','','seller@123')
     
@@ -707,9 +713,10 @@ def create_wholesale_price_list():
             doc.insert()   
 
 def create_currency_riel():
-     if not frappe.db.exists("Currency", {"name": 'Riel'}):
+     if not frappe.db.exists("Currency", {"name": 'KHR'}):
             doc = frappe.get_doc({
-                "currency_name": "Riel",
+                "name":"KHR"
+                "currency_name": "KHR",
                 "enabled": 1,
                 "fraction_units": 1,
                 "smallest_currency_fraction_value": 50,
@@ -719,7 +726,7 @@ def create_currency_riel():
                 "pos_currency_format": "#,###,##0.00##៛",
                 "doctype": "Currency"
             })
-            doc.insert()   
+            doc.save()   
 
 
 
