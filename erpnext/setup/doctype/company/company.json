@@ -797,7 +797,7 @@
  "image_field": "company_logo",
  "is_tree": 1,
  "links": [],
- "modified": "2022-07-21 11:58:30.861141",
+ "modified": "2022-07-21 15:05:04.778057",
  "modified_by": "Administrator",
  "module": "Setup",
  "name": "Company",
@@ -841,8 +841,8 @@
   },
   {
    "export": 1,
-   "read": 1,
-   "role": "Stock User"
+   "role": "Stock User",
+   "select": 1
   },
   {
    "export": 1,
