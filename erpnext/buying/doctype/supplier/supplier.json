@@ -432,7 +432,7 @@
    "link_fieldname": "party"
   }
  ],
- "modified": "2022-04-16 18:02:27.838623",
+ "modified": "2022-07-21 13:02:42.714128",
  "modified_by": "Administrator",
  "module": "Buying",
  "name": "Supplier",
@@ -442,6 +442,7 @@
  "permissions": [
   {
    "email": 1,
+   "export": 1,
    "print": 1,
    "read": 1,
    "report": 1,
@@ -449,6 +450,7 @@
   },
   {
    "email": 1,
+   "export": 1,
    "print": 1,
    "read": 1,
    "report": 1,
@@ -470,22 +472,26 @@
    "write": 1
   },
   {
+   "export": 1,
    "read": 1,
    "role": "Stock User"
   },
   {
    "email": 1,
+   "export": 1,
    "print": 1,
    "read": 1,
    "report": 1,
    "role": "Stock Manager"
   },
   {
+   "export": 1,
    "read": 1,
    "role": "Accounts User"
   },
   {
    "email": 1,
+   "export": 1,
    "print": 1,
    "read": 1,
    "report": 1,

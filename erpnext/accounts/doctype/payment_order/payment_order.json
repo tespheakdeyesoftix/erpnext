@@ -1,4 +1,5 @@
 {
+ "actions": [],
  "autoname": "naming_series:",
  "creation": "2018-07-20 16:43:08.505978",
  "doctype": "DocType",
@@ -107,7 +108,8 @@
   }
  ],
  "is_submittable": 1,
- "modified": "2020-04-06 18:00:56.022642",
+ "links": [],
+ "modified": "2022-07-21 13:02:35.207426",
  "modified_by": "Administrator",
  "module": "Accounts",
  "name": "Payment Order",
@@ -146,5 +148,6 @@
  ],
  "sort_field": "modified",
  "sort_order": "DESC",
+ "states": [],
  "track_changes": 1
 }

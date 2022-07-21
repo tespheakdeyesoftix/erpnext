@@ -562,7 +562,7 @@
    "link_fieldname": "party"
   }
  ],
- "modified": "2022-07-20 14:39:12.732507",
+ "modified": "2022-07-21 13:02:23.317512",
  "modified_by": "Administrator",
  "module": "Selling",
  "name": "Customer",
@@ -573,6 +573,7 @@
   {
    "create": 1,
    "email": 1,
+   "export": 1,
    "print": 1,
    "read": 1,
    "report": 1,
@@ -581,12 +582,14 @@
    "write": 1
   },
   {
+   "export": 1,
    "permlevel": 1,
    "read": 1,
    "role": "Sales User"
   },
   {
    "email": 1,
+   "export": 1,
    "print": 1,
    "read": 1,
    "report": 1,
@@ -607,6 +610,7 @@
    "write": 1
   },
   {
+   "export": 1,
    "permlevel": 1,
    "read": 1,
    "role": "Sales Master Manager",
@@ -614,6 +618,7 @@
   },
   {
    "email": 1,
+   "export": 1,
    "print": 1,
    "read": 1,
    "report": 1,
@@ -621,6 +626,7 @@
   },
   {
    "email": 1,
+   "export": 1,
    "print": 1,
    "read": 1,
    "report": 1,
@@ -628,6 +634,7 @@
   },
   {
    "email": 1,
+   "export": 1,
    "print": 1,
    "read": 1,
    "report": 1,
@@ -635,6 +642,7 @@
   },
   {
    "email": 1,
+   "export": 1,
    "print": 1,
    "read": 1,
    "report": 1,

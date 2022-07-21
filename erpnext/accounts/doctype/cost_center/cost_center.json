@@ -125,7 +125,7 @@
  "idx": 1,
  "is_tree": 1,
  "links": [],
- "modified": "2022-01-31 13:22:58.916273",
+ "modified": "2022-07-21 11:57:43.147105",
  "modified_by": "Administrator",
  "module": "Accounts",
  "name": "Cost Center",
@@ -136,6 +136,7 @@
    "create": 1,
    "delete": 1,
    "email": 1,
+   "export": 1,
    "print": 1,
    "read": 1,
    "report": 1,
@@ -151,16 +152,19 @@
   },
   {
    "email": 1,
+   "export": 1,
    "print": 1,
    "read": 1,
    "report": 1,
    "role": "Accounts User"
   },
   {
+   "export": 1,
    "read": 1,
    "role": "Sales User"
   },
   {
+   "export": 1,
    "read": 1,
    "role": "Purchase User"
   }

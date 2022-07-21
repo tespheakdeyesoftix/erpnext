@@ -244,7 +244,7 @@
  "idx": 1,
  "is_tree": 1,
  "links": [],
- "modified": "2022-03-01 02:37:48.034944",
+ "modified": "2022-07-21 13:02:08.194119",
  "modified_by": "Administrator",
  "module": "Stock",
  "name": "Warehouse",
@@ -267,6 +267,7 @@
   },
   {
    "email": 1,
+   "export": 1,
    "print": 1,
    "read": 1,
    "report": 1,
@@ -274,6 +275,7 @@
   },
   {
    "email": 1,
+   "export": 1,
    "print": 1,
    "read": 1,
    "report": 1,
@@ -281,6 +283,7 @@
   },
   {
    "email": 1,
+   "export": 1,
    "print": 1,
    "read": 1,
    "report": 1,
@@ -288,12 +291,14 @@
   },
   {
    "email": 1,
+   "export": 1,
    "print": 1,
    "read": 1,
    "report": 1,
    "role": "Accounts User"
   },
   {
+   "export": 1,
    "read": 1,
    "role": "Manufacturing User"
   }

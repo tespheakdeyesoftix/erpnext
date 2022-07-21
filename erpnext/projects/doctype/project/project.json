@@ -458,7 +458,7 @@
  "index_web_pages_for_search": 1,
  "links": [],
  "max_attachments": 4,
- "modified": "2022-05-25 22:45:06.108499",
+ "modified": "2022-07-21 12:44:51.135475",
  "modified_by": "Administrator",
  "module": "Projects",
  "name": "Project",
@@ -469,6 +469,7 @@
    "create": 1,
    "delete": 1,
    "email": 1,
+   "export": 1,
    "print": 1,
    "read": 1,
    "report": 1,
@@ -477,6 +478,7 @@
    "write": 1
   },
   {
+   "export": 1,
    "permlevel": 1,
    "read": 1,
    "report": 1,

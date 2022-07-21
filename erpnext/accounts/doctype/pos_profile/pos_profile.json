@@ -565,7 +565,7 @@
    "link_fieldname": "pos_profile"
   }
  ],
- "modified": "2022-07-20 11:55:29.502246",
+ "modified": "2022-07-21 11:58:40.528747",
  "modified_by": "Administrator",
  "module": "Accounts",
  "name": "POS Profile",
@@ -576,6 +576,7 @@
    "create": 1,
    "delete": 1,
    "email": 1,
+   "export": 1,
    "print": 1,
    "read": 1,
    "report": 1,
@@ -585,6 +586,7 @@
   },
   {
    "email": 1,
+   "export": 1,
    "print": 1,
    "read": 1,
    "report": 1,

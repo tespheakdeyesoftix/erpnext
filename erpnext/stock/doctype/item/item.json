@@ -1047,7 +1047,7 @@
  "image_field": "image",
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2022-07-17 11:07:53.883673",
+ "modified": "2022-07-21 13:02:13.018549",
  "modified_by": "Administrator",
  "module": "Stock",
  "name": "Item",
@@ -1069,6 +1069,7 @@
   },
   {
    "email": 1,
+   "export": 1,
    "print": 1,
    "read": 1,
    "report": 1,
@@ -1076,28 +1077,34 @@
   },
   {
    "email": 1,
+   "export": 1,
    "print": 1,
    "read": 1,
    "report": 1,
    "role": "Stock User"
   },
   {
+   "export": 1,
    "read": 1,
    "role": "Sales User"
   },
   {
+   "export": 1,
    "read": 1,
    "role": "Purchase User"
   },
   {
+   "export": 1,
    "read": 1,
    "role": "Maintenance User"
   },
   {
+   "export": 1,
    "read": 1,
    "role": "Accounts User"
   },
   {
+   "export": 1,
    "read": 1,
    "role": "Manufacturing User"
   },

@@ -4,18 +4,19 @@ from frappe.utils import now
 
 @frappe.whitelist()
 def update_export_permission():
-    doctype_list =frappe.db.get_list('DocType',filters=[{"issingle":0},{"istable":0}])
+    doctype_list =['Warehouse','Bin','Stock Entry','Pick List','Stock Reconciliation','Delivery Note','Purchase Receipt','Item Price','Item','Item Alternative','Item Manufacturer','Serial No','Batch','Price List','Repost Item Valuation','Stock Ledger Entry','Material Request','Stock Entry Type','Delivery Trip','Landed Cost Voucher','Shipment Parcel Template','Packing Slip','Manufacturer','Warehouse Type','UOM Category','Sales Order','Quotation','Customer','Installation Note','POS Audit Trail','Product Bundle','Payment Entry','Payment Ledger Entry','Sales Invoice','POS Invoice','Loyalty Program','Journal Entry','GL Entry','Purchase Invoice','Loyalty Point Entry','Budget','Payment Request','Dunning','Payment Order','Opportunity Lost Reason','Opportunity','Lead','Membership Type','Campaign','Competitor','Appointment','Lead Source','Contract','Supplier Quotation','Request for Quotation','Supplier','Purchase Order']
+    
+     
     for d in doctype_list:
-        if d.name!="DocType":
-            doc = frappe.get_doc("DocType",d.name)
+        doc = frappe.get_doc("DocType",d)
 
-            for p in doc.permissions:
-                p.export = 1
+        for p in doc.permissions:
+            p.export =1
 
-            doc.save()
-            frappe.db.commit()
-            return doc
-    return doctype_list
+        doc.save()
+        frappe.db.commit()
+            
+    return "Done"
 
 
 

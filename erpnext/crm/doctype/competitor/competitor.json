@@ -30,7 +30,7 @@
  ],
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2021-10-21 12:43:59.106807",
+ "modified": "2022-07-21 13:02:37.918051",
  "modified_by": "Administrator",
  "module": "CRM",
  "name": "Competitor",
@@ -64,5 +64,6 @@
  "quick_entry": 1,
  "sort_field": "modified",
  "sort_order": "DESC",
+ "states": [],
  "track_changes": 1
 }

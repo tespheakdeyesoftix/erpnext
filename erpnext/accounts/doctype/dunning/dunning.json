@@ -315,7 +315,7 @@
  ],
  "is_submittable": 1,
  "links": [],
- "modified": "2020-08-03 18:55:43.683053",
+ "modified": "2022-07-21 13:02:34.721489",
  "modified_by": "Administrator",
  "module": "Accounts",
  "name": "Dunning",
@@ -365,6 +365,7 @@
  ],
  "sort_field": "modified",
  "sort_order": "ASC",
+ "states": [],
  "title_field": "customer_name",
  "track_changes": 1
 }

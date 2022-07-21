@@ -224,7 +224,7 @@
  "icon": "fa fa-flag",
  "idx": 1,
  "links": [],
- "modified": "2022-05-09 05:01:38.957545",
+ "modified": "2022-07-21 12:44:52.679694",
  "modified_by": "Administrator",
  "module": "HR",
  "name": "Leave Type",
@@ -235,6 +235,7 @@
    "create": 1,
    "delete": 1,
    "email": 1,
+   "export": 1,
    "print": 1,
    "read": 1,
    "report": 1,
@@ -246,6 +247,7 @@
    "create": 1,
    "delete": 1,
    "email": 1,
+   "export": 1,
    "print": 1,
    "read": 1,
    "report": 1,
@@ -254,6 +256,7 @@
    "write": 1
   },
   {
+   "export": 1,
    "read": 1,
    "role": "Employee"
   }

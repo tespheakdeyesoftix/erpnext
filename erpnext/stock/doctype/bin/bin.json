@@ -171,7 +171,7 @@
  "idx": 1,
  "in_create": 1,
  "links": [],
- "modified": "2022-03-30 07:22:23.868602",
+ "modified": "2022-07-21 13:02:08.679400",
  "modified_by": "Administrator",
  "module": "Stock",
  "name": "Bin",
@@ -180,6 +180,7 @@
  "permissions": [
   {
    "email": 1,
+   "export": 1,
    "print": 1,
    "read": 1,
    "report": 1,
@@ -187,6 +188,7 @@
   },
   {
    "email": 1,
+   "export": 1,
    "print": 1,
    "read": 1,
    "report": 1,
@@ -194,6 +196,7 @@
   },
   {
    "email": 1,
+   "export": 1,
    "print": 1,
    "read": 1,
    "report": 1,

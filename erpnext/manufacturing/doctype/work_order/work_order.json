@@ -575,7 +575,7 @@
  "image_field": "image",
  "is_submittable": 1,
  "links": [],
- "modified": "2022-01-24 21:18:12.160114",
+ "modified": "2022-07-21 12:45:03.726963",
  "modified_by": "Administrator",
  "module": "Manufacturing",
  "name": "Work Order",
@@ -601,6 +601,7 @@
    "write": 1
   },
   {
+   "export": 1,
    "read": 1,
    "report": 1,
    "role": "Stock User"
