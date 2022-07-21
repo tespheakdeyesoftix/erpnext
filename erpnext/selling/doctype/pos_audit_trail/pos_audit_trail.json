@@ -124,7 +124,7 @@
  ],
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2022-07-11 10:37:59.710826",
+ "modified": "2022-07-20 19:37:00.092847",
  "modified_by": "Administrator",
  "module": "Selling",
  "name": "POS Audit Trail",
@@ -142,6 +142,15 @@
    "role": "System Manager",
    "share": 1,
    "write": 1
+  },
+  {
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "Admin User",
+   "share": 1
   }
  ],
  "sort_field": "modified",

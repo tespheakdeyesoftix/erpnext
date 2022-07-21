@@ -2,6 +2,22 @@ import frappe
 from frappe.utils import today
 from frappe.utils import now
 
+@frappe.whitelist()
+def update_export_permission():
+    doctype_list =frappe.db.get_list('DocType',filters=[{"issingle":0},{"istable":0}])
+    for d in doctype_list:
+        if d.name!="DocType":
+            doc = frappe.get_doc("DocType",d.name)
+
+            for p in doc.permissions:
+                p.export = 1
+
+            doc.save()
+            frappe.db.commit()
+            return doc
+    return doctype_list
+
+
 
 @frappe.whitelist()
 def set_system_default_config():
@@ -715,7 +731,7 @@ def create_wholesale_price_list():
 def create_currency_riel():
      if not frappe.db.exists("Currency", {"name": 'KHR'}):
             doc = frappe.get_doc({
-                "name":"KHR"
+                "name":"KHR",
                 "currency_name": "KHR",
                 "enabled": 1,
                 "fraction_units": 1,

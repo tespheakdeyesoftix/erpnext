@@ -539,7 +539,7 @@
  "idx": 176,
  "is_submittable": 1,
  "links": [],
- "modified": "2022-06-23 22:01:32.348337",
+ "modified": "2022-07-21 09:09:52.275351",
  "modified_by": "Administrator",
  "module": "Accounts",
  "name": "Journal Entry",
@@ -582,6 +582,15 @@
    "read": 1,
    "report": 1,
    "role": "Auditor"
+  },
+  {
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "Admin User",
+   "share": 1
   }
  ],
  "search_fields": "voucher_type,posting_date, due_date, cheque_no",

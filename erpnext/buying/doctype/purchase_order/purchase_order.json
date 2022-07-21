@@ -1172,7 +1172,7 @@
  "idx": 105,
  "is_submittable": 1,
  "links": [],
- "modified": "2022-06-15 15:40:58.527065",
+ "modified": "2022-07-21 11:32:28.988454",
  "modified_by": "Administrator",
  "module": "Buying",
  "name": "Purchase Order",
@@ -1180,6 +1180,7 @@
  "owner": "Administrator",
  "permissions": [
   {
+   "export": 1,
    "read": 1,
    "report": 1,
    "role": "Stock User"
@@ -1190,6 +1191,7 @@
    "create": 1,
    "delete": 1,
    "email": 1,
+   "export": 1,
    "print": 1,
    "read": 1,
    "report": 1,
@@ -1204,6 +1206,7 @@
    "create": 1,
    "delete": 1,
    "email": 1,
+   "export": 1,
    "print": 1,
    "read": 1,
    "report": 1,
@@ -1213,9 +1216,26 @@
    "write": 1
   },
   {
+   "export": 1,
    "permlevel": 1,
    "read": 1,
    "role": "Purchase Manager",
+   "write": 1
+  },
+  {
+   "amend": 1,
+   "cancel": 1,
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "import": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "Admin User",
+   "share": 1,
+   "submit": 1,
    "write": 1
   }
  ],

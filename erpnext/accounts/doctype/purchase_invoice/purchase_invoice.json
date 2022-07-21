@@ -1367,7 +1367,7 @@
    "width": "50px"
   },
   {
-    "depends_on": "eval:doc.is_subcontracted",
+   "depends_on": "eval:doc.is_subcontracted",
    "fieldname": "supplier_warehouse",
    "fieldtype": "Link",
    "label": "Supplier Warehouse",
@@ -1426,13 +1426,13 @@
    "hidden": 1,
    "label": "Is Old Subcontracting Flow",
    "read_only": 1
-   }
+  }
  ],
  "icon": "fa fa-file-text",
  "idx": 204,
  "is_submittable": 1,
  "links": [],
- "modified": "2022-06-15 15:40:58.527065",
+ "modified": "2022-07-21 11:04:30.021478",
  "modified_by": "Administrator",
  "module": "Accounts",
  "name": "Purchase Invoice",
@@ -1486,12 +1486,26 @@
    "read": 1,
    "role": "Accounts Manager",
    "write": 1
+  },
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "import": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "Admin User",
+   "share": 1,
+   "write": 1
   }
  ],
  "search_fields": "posting_date, supplier, bill_no, base_grand_total, outstanding_amount",
  "show_name_in_global_search": 1,
  "sort_field": "modified",
  "sort_order": "DESC",
+ "states": [],
  "timeline_field": "supplier",
  "title_field": "title",
  "track_changes": 1
