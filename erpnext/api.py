@@ -59,6 +59,7 @@ def set_system_default_config():
     create_buyer_role_profile()
     create_stock_and_buyer_role_profile()
     create_sale_and_marketing_role_profile()
+    create_accountant_role_profile()
 
     create_admin_role_profile()
 
@@ -70,6 +71,7 @@ def set_system_default_config():
     create_module_profile('Stock and Buyer Profile',['Buying','Communication','Stock'])
     create_module_profile('Sale and Marketing Profile',['CRM'])
     create_module_profile('Sync Profile',['Communication'])
+    create_module_profile('Account Profile',['Accounts'])
 
     
     disable_unuse_stock_entry_type()
@@ -138,6 +140,7 @@ def update_system_settings():
     doc.save(
         ignore_permissions=True
     )
+    frappe.db.commit()
 
 def update_selling_settings():
     doc = frappe.get_doc('Selling Settings')
@@ -145,6 +148,7 @@ def update_selling_settings():
     doc.save(
         ignore_permissions=True
     )
+    frappe.db.commit()
 
 def update_buying_settings():
     doc = frappe.get_doc('Buying Settings')
@@ -153,6 +157,7 @@ def update_buying_settings():
     doc.save(
         ignore_permissions=True
     )
+    frappe.db.commit()
 
 
 def update_navbar_settings():
@@ -161,6 +166,7 @@ def update_navbar_settings():
     doc.save(
         ignore_permissions=True
     ) 
+    frappe.db.commit()
 
 def update_stock_settings():
     doc = frappe.get_doc('Stock Settings')
@@ -171,7 +177,7 @@ def update_stock_settings():
     doc.save(
         ignore_permissions=True
     )
-
+    frappe.db.commit()
 
 def update_website_setting():
     doc = frappe.get_doc('Website Settings')
@@ -184,6 +190,7 @@ def update_website_setting():
     doc.save(
         ignore_permissions=True
     )
+    frappe.db.commit()
 
 
 
@@ -220,6 +227,7 @@ def update_company():
             })
         
         doc.save()    
+        frappe.db.commit()
 
 def get_company():
     companies = frappe.db.get_list('Company')
@@ -237,6 +245,7 @@ def create_customer_display_image():
             "description":"slideshow1"
         })
         doc.insert()
+        frappe.db.commit()
 
     if not frappe.db.exists("Image Galleries", {"name": "slideshow2"}):
         doc = frappe.get_doc({
@@ -245,6 +254,7 @@ def create_customer_display_image():
             "description":"slideshow2"
         })
         doc.insert()
+        frappe.db.commit()
     
     if not frappe.db.exists("Image Galleries", {"name": "slideshow3"}):
         doc = frappe.get_doc({
@@ -253,6 +263,8 @@ def create_customer_display_image():
             "description":"slideshow3"
         })
         doc.insert()
+        frappe.db.commit()
+
     if not frappe.db.exists("Image Galleries", {"name": "slideshow4"}):
         doc = frappe.get_doc({
             "doctype": "Image Galleries",
@@ -260,6 +272,7 @@ def create_customer_display_image():
             "description":"slideshow4"
         })
         doc.insert()
+        frappe.db.commit()
     
 
 def create_general_customer():
@@ -274,6 +287,7 @@ def create_general_customer():
             "doctype": "Customer",
         })
         doc.insert()
+        frappe.db.commit()
 
 
 def create_uom_unit():
@@ -285,6 +299,7 @@ def create_uom_unit():
             "doctype": "UOM"
         })
         doc.insert()
+        frappe.db.commit()
 
 
 def delete_unuse_uom_conversion():
@@ -295,6 +310,7 @@ def delete_unuse_uom_conversion():
     for d in datas:
         doc = frappe.get_doc('UOM Conversion Factor', d)
         doc.delete()
+        frappe.db.commit()
 
    
 def delete_unuse_uom():
@@ -316,6 +332,7 @@ def delete_unuse_uom():
     for d in datas:
         doc = frappe.get_doc('UOM Conversion Factor', d)
         doc.delete()
+        frappe.db.commit()
 
     #delete by from uom 
     datas = frappe.db.get_list('UOM Conversion Factor',
@@ -324,12 +341,14 @@ def delete_unuse_uom():
     for d in datas:
         doc = frappe.get_doc('UOM Conversion Factor', d)
         doc.delete()
+        frappe.db.commit()
 
     #delete uom code 
     for d in uoms:
         if frappe.db.exists("UOM", {"name": d}):
             doc = frappe.get_doc('UOM', d)
             doc.delete()
+            frappe.db.commit()
 
 
 def delete_unuse_currency():
@@ -338,6 +357,7 @@ def delete_unuse_currency():
         if frappe.db.exists("Currency", {"name": d}):
             doc = frappe.get_doc('Currency', d)
             doc.delete()
+            frappe.db.commit()
 
 def delete_unuse_language():
     datas = ['zh-TW','zh','vi','uz','ur','uk','tr','th','te','ta','sw','sv','sr-BA','sr','sq','sl','sk','si','rw','ru','ro','pt-BR','pt','ps','pl','no','nl','my','ms','mr','ml','mk','lv','lt','lo','ku','ko','kn','ja','it','is','id','hu','hr','hi','he','gu','fr-CA','fr','fil','fi','fa','et','es-PE','es-NI','es-MX','es-GT','es-EC','es-DO','es-CO','es-CL','es-BO','es-AR','es','el','de','da-DK','da','cs','ca','bs','bo','bn','bg','ar','am','af','en-GB']
@@ -345,6 +365,7 @@ def delete_unuse_language():
         if frappe.db.exists("Language", {"name": d}):
             doc = frappe.get_doc('Language', d)
             doc.delete()
+            frappe.db.commit()
             
 
 def create_default_branch():
@@ -360,6 +381,7 @@ def create_default_branch():
                 }
             )
             doc.insert()
+            frappe.db.commit()
 
 def create_comment_role():
     if not frappe.db.exists("Role", {"role_name": "Commenter"}):
@@ -382,6 +404,7 @@ def create_comment_role():
                 }
             )
             doc.insert()
+            frappe.db.commit()
 
 def create_translate_role():
     if not frappe.db.exists("Role", {"role_name": "Translator"}):
@@ -404,6 +427,7 @@ def create_translate_role():
                 }
             )
             doc.insert()
+            frappe.db.commit()
 
 
 def create_admin_role():
@@ -427,6 +451,7 @@ def create_admin_role():
                 }
             )
             doc.insert()
+            frappe.db.commit()
 
 
 
@@ -465,6 +490,7 @@ def create_sync_role_profile():
                 }
             )
             doc.insert()
+            frappe.db.commit()
 
 
 def create_seller_role_profile():
@@ -494,7 +520,8 @@ def create_seller_role_profile():
                     ]
                 }
             )
-            doc.insert()    
+            doc.insert()
+            frappe.db.commit()    
 
 
 def create_stock_role_profile():
@@ -525,6 +552,8 @@ def create_stock_role_profile():
                 }
             )
             doc.insert()    
+            frappe.db.commit()
+
 
 def create_buyer_role_profile():
     name = "Buyer Role"
@@ -544,10 +573,16 @@ def create_buyer_role_profile():
                     {
                         "role": "Purchase Manager",
                         "doctype": "Has Role"
+                    },
+                    {
+                        "doctype": "Has Role",
+                        "role": "Stock User"
                     }
                 ]
             })
-            doc.insert()    
+            doc.insert()  
+            frappe.db.commit()  
+
 
 def create_stock_and_buyer_role_profile():
     name = "Stock and Buyer Role"
@@ -582,7 +617,8 @@ def create_stock_and_buyer_role_profile():
                     }
                 ]
             })
-            doc.insert()    
+            doc.insert() 
+            frappe.db.commit()   
 
 
 def create_sale_and_marketing_role_profile():
@@ -602,7 +638,8 @@ def create_sale_and_marketing_role_profile():
                     }
                 ]
             })
-            doc.insert()    
+            doc.insert()
+            frappe.db.commit()    
 
  
 def create_admin_role_profile():
@@ -626,10 +663,6 @@ def create_admin_role_profile():
                     },
                     {
                         "role": "Customer",
-                        "doctype": "Has Role"
-                    },
-                    {
-                        "role": "Dashboard Manager",
                         "doctype": "Has Role"
                     },
                     {
@@ -687,7 +720,35 @@ def create_admin_role_profile():
                 ]
             })
             doc.insert() 
+            frappe.db.commit()
 
+def create_accountant_role_profile():
+    name = "Account Role"
+    if not frappe.db.exists("Role Profile", {"name": name}):
+            doc = frappe.get_doc({
+                "role_profile": name,
+                "doctype": "Role Profile",
+                "roles": [
+                    {
+                        "role": "Commenter",
+                        "doctype": "Has Role"
+                    },
+                    {
+                        "role": "Accounts Manager",
+                        "doctype": "Has Role"
+                    },
+                    {
+                        "role": "Accounts User",
+                        "doctype": "Has Role"
+                    },
+                    {
+                        "doctype": "Has Role",
+                        "role": "Stock User"
+                    }
+                ]
+            })
+            doc.insert() 
+            frappe.db.commit()   
 
 
 def disable_unuse_role():
@@ -702,6 +763,7 @@ def disable_unuse_stock_entry_type():
         frappe.db.delete("Stock Entry Type", {
             "name": d
         })
+        frappe.db.commit()
 
 
 #module profile
@@ -714,6 +776,7 @@ def create_module_profile(name, modules):
                 "block_modules": get_block_modules(modules)
             })
             doc.insert()   
+            frappe.db.commit()
 
 
 
@@ -728,6 +791,7 @@ def create_wholesale_price_list():
                 "doctype": "Price List"
             })
             doc.insert()   
+            frappe.db.commit()
 
 def create_currency_riel():
      if not frappe.db.exists("Currency", {"name": 'KHR'}):
@@ -744,6 +808,7 @@ def create_currency_riel():
                 "doctype": "Currency"
             })
             doc.save()   
+            frappe.db.commit()
 
 
 
@@ -803,6 +868,7 @@ def create_user(name,full_name,role_profile,module_profile,pos_password,backend_
             "roles": new_roles
         })
         doc.insert() 
+        frappe.db.commit()
     
 def update_admin_user():
     if frappe.db.exists("User", {"name": "admin@mail.com"}):
@@ -840,6 +906,7 @@ def update_admin_user():
              
      
         doc.save() 
+        frappe.db.commit()
    
 
 def create_currency_exchange_rate():
@@ -849,13 +916,14 @@ def create_currency_exchange_rate():
             "date": today(),
             "company": company.company_name,
             "from_currency": "USD",
-            "to_currency": "Riel",
+            "to_currency": "KHR",
             "exchange_rate": 4000,
             "for_buying": 1,
             "for_selling": 1,
             "doctype": "Currency Exchange"
         })
         doc.insert()
+        frappe.db.commit()
 
 
 def create_default_vendor():
@@ -883,6 +951,7 @@ def create_default_vendor():
             "doctype": "Supplier"
         })
         doc.insert()
+        frappe.db.commit()
 
 def create_default_payment_type():
     company = get_company()
@@ -901,6 +970,7 @@ def create_default_payment_type():
             ]
         })
         doc.insert()
+        frappe.db.commit()
     #ABA 
     if not frappe.db.exists("Mode of Payment",{"name":'ABA'}):
         doc= frappe.get_doc({
@@ -917,6 +987,7 @@ def create_default_payment_type():
             ]
         })
         doc.insert()
+        frappe.db.commit()
 
 
     # ABA Riel
@@ -935,6 +1006,7 @@ def create_default_payment_type():
             ]
         })
         doc.insert()
+        frappe.db.commit()
     
 
         
@@ -1042,6 +1114,7 @@ def create_main_pos_profile():
                 ]
             })
             doc.insert()   
+            frappe.db.commit()
 
 def all_modules():
     return ["Core",
@@ -1129,6 +1202,7 @@ def create_webhook():
             ]
         })
         doc.insert()
+        frappe.db.commit()
 
     if not frappe.db.exists("Webhook", {"webhook_doctype": "Version"}):
         doc = frappe.get_doc({
@@ -1161,6 +1235,7 @@ def create_webhook():
             ]
         })
         doc.insert()
+        frappe.db.commit()
         
 def generate_sync_user_api():
     user_details = frappe.get_doc("User", "sync-mpp@mail.com")
@@ -1170,6 +1245,7 @@ def generate_sync_user_api():
         user_details.api_key = api_key
         user_details.api_secret = api_secret
         user_details.save()
+        frappe.db.commit()
     
     
     
